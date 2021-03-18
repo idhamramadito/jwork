@@ -7,20 +7,22 @@
  */
 public class Invoice
 {
-    // instance variables - replace the example below with your own
-    private int x;
     private int id;
     private int idJob;
     private String date;
     private int totalFee;
+    private JobSeeker jobseeker;
 
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice()
+    public Invoice(int id, int idJob, String date, int totalFee, JobSeeker jobseeker)
     {
-        // initialise instance variables
-        x = 0;
+        this.id = id;
+        this.idJob = idJob;
+        this.date = date;
+        this.totalFee = totalFee;
+        this.jobseeker = jobseeker;
     }
 
     /**
@@ -31,49 +33,74 @@ public class Invoice
      */
     public int getId()
     {
-        // put your code here
-        return 0;
+        
+        return id;
     }
     
     public int getIdJob()
     {
-        // put your code here
-        return 0;
+        
+        return idJob;
     }
     
     public String getDate()
     {
-        // put your code here
-        return "oop";
+        
+        return date;
     }
     
     public int getTotalfee()
     {
-        // put your code here
-        return 0;
-    }
-
-    public void setId(int id)
-    {
-        // put your code here
         
+        return totalFee;
     }
     
-    public void setIdJobs(int idJobs)
+    public JobSeeker getJobseeker()
     {
-        // put your code here
         
+        return jobseeker;
+    }
+    
+    public void setId(int id)
+    {
+        
+        this.id = id;
+    }
+    
+    public void setIdJob(int idJob)
+    {
+        
+        this.idJob = idJob;
     }
     
     public void setDate(String date)
     {
-        // put your code here
         
+        this.date = date;
     }
     
     public void setTotalFee(int totalFee)
     {
-        // put your code here
+        
+        this.totalFee = totalFee;
+    }
+    
+    public void setJobseeker(JobSeeker jobseeker)
+    {
+        
+        this.jobseeker = jobseeker;
+    }
+    
+    public void printData()
+    {
+        System.out.println(
+        "\n----Invoice----\n" +
+        "ID = "+id +"\n" +
+        "Job ID = "+idJob +"\n" +
+        "Tanggal = "+date +"\n" +
+        "Total Biaya = "+totalFee +"\n" +
+        "Jobseeker = "+jobseeker.getName()
+        );
         
     }
 }

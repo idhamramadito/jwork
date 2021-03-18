@@ -2,25 +2,27 @@
 /**
  * Write a description of class Recruiter here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Idham Ramadito
+ * @version 18 Maret 2021
  */
 public class Recruiter
 {
-    // instance variables - replace the example below with your own
-    private int x;
     private int id;
     private String name;
     private String email;
     private String phoneNumber;
+    private Location location;
 
     /**
      * Constructor for objects of class Recruiter
      */
-    public Recruiter()
+    public Recruiter(int id, String name, String email, String phoneNumber, Location location)
     {
-        // initialise instance variables
-        x = 0;
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
     }
 
     /**
@@ -31,49 +33,73 @@ public class Recruiter
      */
     public int getId()
     {
-        // put your code here
-        return 0;
+        
+        return id;
     }
     
     public String getName()
     {
-        // put your code here
-        return "oop";
+        
+        return name;
     }
     
     public String getEmail()
     {
-        // put your code here
-        return "oop";
+        
+        return email;
     }
     
     public String getPhoneNumber()
     {
-        // put your code here
-        return "oop";
+        
+        return phoneNumber;
+    }
+    
+    public Location getLocation()
+    {
+        
+        return location;
     }
     
     public void setId(int id)
     {
-        // put your code here
         
+        this.id = id;
     }
     
     public void setEmail(String email)
     {
-        // put your code here
         
+        this.email = email;
     }
     
     public void setName(String name)
     {
-        // put your code here
         
+        this.name = name;
     }
     
     public void setPhoneNumber(String phoneNumber)
     {
-        // put your code here
         
+        this.phoneNumber = phoneNumber;
+    }
+    
+    public void setLocation(Location location)
+    {
+        
+        this.location = location;
+    }
+    
+    public void printData()
+    {
+        System.out.println(
+        "\n----Recruiter----\n" +
+        "ID          = "+id +"\n" +
+        "Nama        = "+name +"\n" +
+        "Email       = "+email +"\n" +
+        "No. Telepon = "+phoneNumber +"\n" +
+        "Lokasi      = "+location.getCity()
+        );
     }
 }

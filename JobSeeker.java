@@ -8,7 +8,6 @@
 public class JobSeeker
 {
     // instance variables - replace the example below with your own
-    private int x;
     private int id;
     private String name;
     private String email;
@@ -18,75 +17,84 @@ public class JobSeeker
     /**
      * Constructor for objects of class JobSeeker
      */
-    public JobSeeker()
+    public JobSeeker(int id, String name, String email, String password, String joinDate)
     {
-        // initialise instance variables
-        x = 0;
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.joinDate = joinDate;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public int getId()
     {
-        // put your code here
-        return 0;
+        
+        return id;
     }
     
     public String getName()
     {
-        // put your code here
-        return "oop";
+        
+        return name;
     }
     
     public String getEmail()
     {
-        // put your code here
-        return "oop";
+        
+        return email;
     }
     
     public String getPassword()
     {
-        // put your code here
-        return "oop";
+        
+        return password;
     }
     
     public String getJoinDate()
     {
-        // put your code here
-        return "oop";
+        
+        return joinDate;
     }
     
     public void setId(int id)
     {
-        // put your code here
         
+        this.id = id;
     }
     
     public void setName(String name)
     {
-        // put your code here
         
+        this.name = name;
     }
     
     public void setEmail(String email)
     {
-        // put your code here
         
+        this.email = email;
     }
     
     public void setPassword(String password)
     {
-        // put your code here
         
+        this.password = password;
     }
     
     public void setJoinDate(String joinDate)
     {
-        // put your code here
         
+        this.joinDate = joinDate;
+    }
+    
+    public void printData()
+    {
+        System.out.println(
+        "\n----JobSeeker----\n" +
+        "ID            = "+id +"\n" +
+        "Nama          = "+name +"\n" +
+        "Email         = "+email +"\n" +
+        "Password      = "+password +"\n" +
+        "Tanggal Masuk = "+joinDate
+        );
     }
 }

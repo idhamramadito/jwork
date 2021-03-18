@@ -7,20 +7,22 @@
  */
 public class Job
 {
-    // instance variables - replace the example below with your own
-    private int x;
     private int id;
     private String name;
     private int fee;
     private String category;
+    private Recruiter recruiter;
 
     /**
      * Constructor for objects of class Job
      */
-    public Job()
+    public Job(int id, String name, Recruiter recruiter, int fee, String category)
     {
-        // initialise instance variables
-        x = 0;
+        this.id = id;
+        this.name = name;
+        this.fee = fee;
+        this.category = category;
+        this.recruiter = recruiter;
     }
 
     /**
@@ -31,49 +33,74 @@ public class Job
      */
     public int getId()
     {
-        // put your code here
-        return 0;
+        
+        return id;
     }
     
     public String getName()
     {
-        // put your code here
-        return "oop";
+        
+        return name;
     }
     
     public int getFee()
     {
-        // put your code here
-        return 0;
+        
+        return fee;
     }
     
     public String getCategory()
     {
-        // put your code here
-        return "oop";
+        
+        return category;
+    }
+    
+    public Recruiter getRecruiter()
+    {
+        
+        return recruiter;
     }
     
     public void setId(int id)
     {
-        // put your code here
         
+        this.id = id;
     }
     
     public void setName(String name)
     {
-        // put your code here
         
+        this.name = name;
+    }
+    
+    public void setRecruiter(Recruiter recruiter)
+    {
+        
+        this.recruiter = recruiter;
     }
     
     public void setFee(int fee)
     {
-        // put your code here
         
+        this.fee = fee;
     }
     
     public void setCategory(String category)
     {
-        // put your code here
+        
+        this.category = category;
+    }
+    
+    public void printData()
+    {
+        System.out.println(
+        "\n----Job----\n" +
+        "ID        = "+id +"\n" +
+        "Nama      = "+name +"\n" +
+        "Recruiter = "+recruiter.getName() +"\n" +
+        "Biaya     = "+fee +"\n" +
+        "Kategori  = "+category
+        );
         
     }
 }
