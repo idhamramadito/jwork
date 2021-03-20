@@ -61,7 +61,7 @@ public class Location
     public void printData()
     {
         System.out.println(
-        "----Location----\n" +
+        "\n----Location----\n" +
         "Provinsi = "+province +"\n" +
         "Kota = "+city +"\n" +
         "Deskripsi = "+description
