@@ -2,8 +2,8 @@
 /**
  * Write a description of class Invoice here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Idham Ramadito
+ * @version Modul 3, 25 Maret 2021
  */
 public class Invoice
 {

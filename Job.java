@@ -2,21 +2,21 @@
 /**
  * Write a description of class Job here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Idham Ramadito
+ * @version Modul 3, 25 Maret 2021
  */
 public class Job
 {
     private int id;
     private String name;
     private int fee;
-    private String category;
+    private JobCategory category;
     private Recruiter recruiter;
 
     /**
      * Constructor for objects of class Job
      */
-    public Job(int id, String name, Recruiter recruiter, int fee, String category)
+    public Job(int id, String name, Recruiter recruiter, int fee, JobCategory category)
     {
         this.id = id;
         this.name = name;
@@ -49,7 +49,7 @@ public class Job
         return fee;
     }
     
-    public String getCategory()
+    public JobCategory getCategory()
     {
         
         return category;
@@ -85,7 +85,7 @@ public class Job
         this.fee = fee;
     }
     
-    public void setCategory(String category)
+    public void setCategory(JobCategory category)
     {
         
         this.category = category;
@@ -94,12 +94,13 @@ public class Job
     public void printData()
     {
         System.out.println(
-        "\n----Job----\n" +
+        "\n==========Job==========\n" +
         "ID        = "+id +"\n" +
-        "Nama      = "+name +"\n" +
+        "Name      = "+name +"\n" +
         "Recruiter = "+recruiter.getName() +"\n" +
-        "Biaya     = "+fee +"\n" +
-        "Kategori  = "+category
+        "City      = "+recruiter.getLocation().getCity() +"\n" +
+        "Fee       = "+fee +"\n" +
+        "Category  = "+category
         );
         
     }
