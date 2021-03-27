@@ -35,11 +35,12 @@ public class JWork
         Recruiter james = new Recruiter(007, "Hizkia Eben", "bond.007@gmail.com", "081234567890", medan);
         Job webdev = new Job(007, "Senior Designer", james, 500000, JobCategory.WebDeveloper);
         JobSeeker jason = new JobSeeker(001, "Jason Bourne", "bourne.001@gmail.com", "080987654321", "28 Maret 2021");
+        Invoice pertama = new Invoice(1, webdev.getId(), "28/03/2021", webdev.getFee(), jason, PaymentType.BankPayment, InvoiceStatus.OnGoing);
         
         // webdev.printData();
-        
-        Invoice pertama = new Invoice(1, 007, "28/03/2021", 500000, jason, PaymentType.BankPayment, InvoiceStatus.OnGoing);
-        
         pertama.printData();
+        
+        
+        
     }
 }
