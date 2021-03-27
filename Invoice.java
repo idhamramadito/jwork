@@ -3,7 +3,7 @@
  * Write a description of class Invoice here.
  *
  * @author Idham Ramadito
- * @version Modul 3, 25 Maret 2021
+ * @version PT_Modul 3, 27 Maret 2021
  */
 public class Invoice
 {
@@ -12,17 +12,21 @@ public class Invoice
     private String date;
     private int totalFee;
     private JobSeeker jobseeker;
+    private PaymentType paymenttype;
+    private InvoiceStatus status;
 
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, int idJob, String date, int totalFee, JobSeeker jobseeker)
+    public Invoice(int id, int idJob, String date, int totalFee, JobSeeker jobseeker, PaymentType paymenttype, InvoiceStatus status)
     {
         this.id = id;
         this.idJob = idJob;
         this.date = date;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
+        this.paymenttype = paymenttype;
+        this.status = status;
     }
 
     /**
@@ -61,6 +65,18 @@ public class Invoice
         return jobseeker;
     }
     
+    public PaymentType getPaymentType()
+    {
+        
+        return paymenttype;
+    }
+    
+    public InvoiceStatus getInvoiceStatus()
+    {
+        
+        return status;
+    }
+    
     public void setId(int id)
     {
         
@@ -91,15 +107,28 @@ public class Invoice
         this.jobseeker = jobseeker;
     }
     
+    public void setPaymentType(PaymentType paymenttype)
+    {
+        
+        this.paymenttype = paymenttype;
+    }
+    
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        
+        this.status = status;
+    }
+    
     public void printData()
     {
         System.out.println(
-        "\n----Invoice----\n" +
-        "ID = "+id +"\n" +
-        "Job ID = "+idJob +"\n" +
-        "Tanggal = "+date +"\n" +
-        "Total Biaya = "+totalFee +"\n" +
-        "Jobseeker = "+jobseeker.getName()
+        "\n==========Invoice==========\n" +
+        "ID     = "+id +"\n" +
+        "ID Job = "+idJob +"\n" +
+        "Date   = "+date +"\n" +
+        "Seeker = "+jobseeker.getName() +"\n" +
+        "Fee    = "+totalFee +"\n" +
+        "Status = "+status
         );
         
     }

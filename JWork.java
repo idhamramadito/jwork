@@ -3,7 +3,7 @@
  * Write a description of class JWork here.
  *
  * @author Idham Ramadito
- * @version Modul 3, 25 Maret 2021
+ * @version PT_Modul 3, 27 Maret 2021
  */
 public class JWork
 {
@@ -34,7 +34,12 @@ public class JWork
         Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
         Recruiter james = new Recruiter(007, "Hizkia Eben", "bond.007@gmail.com", "081234567890", medan);
         Job webdev = new Job(007, "Senior Designer", james, 500000, JobCategory.WebDeveloper);
+        JobSeeker jason = new JobSeeker(001, "Jason Bourne", "bourne.001@gmail.com", "080987654321", "28 Maret 2021");
         
-        webdev.printData();
+        // webdev.printData();
+        
+        Invoice pertama = new Invoice(1, 007, "28/03/2021", 500000, jason, PaymentType.BankPayment, InvoiceStatus.OnGoing);
+        
+        pertama.printData();
     }
 }

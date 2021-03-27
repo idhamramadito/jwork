@@ -1,12 +1,12 @@
 
 /**
- * Write a description of class Job here.
  *
  * @author Idham Ramadito
  * @version Modul 3, 25 Maret 2021
  */
 public class Job
 {
+    // instance variables
     private int id;
     private String name;
     private int fee;
@@ -14,7 +14,12 @@ public class Job
     private Recruiter recruiter;
 
     /**
-     * Constructor for objects of class Job
+     * Constructor dari class Job
+     * @param id merupakan id unik dari Job
+     * @param name merupakan nama dari Job
+     * @param fee merupakan fee dari Job
+     * @param category merupakan panggilan dari enum JobCategory sebagai kategori dari Job
+     * @param recruiter merupakan panggilan dari class recruiter sebagai siapa perekrut dari Job ini
      */
     public Job(int id, String name, Recruiter recruiter, int fee, JobCategory category)
     {
@@ -26,10 +31,8 @@ public class Job
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param  id  melakukan get id dari job
+     * @return     unik id dari job
      */
     public int getId()
     {
@@ -37,24 +40,40 @@ public class Job
         return id;
     }
     
+    /**
+     * @param  name  melakukan get name dari job
+     * @return       name dari job
+     */
     public String getName()
     {
         
         return name;
     }
     
+    /**
+     * @param  fee  melakukan get fee dari job
+     * @return      fee dari job
+     */
     public int getFee()
     {
         
         return fee;
     }
     
+    /**
+     * @param  category  melakukan get category dari enum JobCategory
+     * @return           category yang dipilih dari list pada JobCategory
+     */
     public JobCategory getCategory()
     {
         
         return category;
     }
     
+    /**
+     * @param  recruiter  melakukan get recruiter dari class Recruiter
+     * @return            recruiter dari class Recruiter
+     */
     public Recruiter getRecruiter()
     {
         

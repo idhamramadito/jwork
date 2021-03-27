@@ -1,6 +1,5 @@
 
 /**
- * Write a description of class Recruiter here.
  *
  * @author Idham Ramadito
  * @version Modul 3, 25 Maret 2021
