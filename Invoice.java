@@ -29,8 +29,8 @@ abstract class Invoice
     /**
      * An example of a method - replace this comment with your own
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param  id  melakukan get id dari dari class invoice
+     * @return     id dari class invoice
      */
     public int getId()
     {
