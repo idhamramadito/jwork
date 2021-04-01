@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=EwalletPayment
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ EwalletPayment\ here.\r\n\r\n\ @author\ Idham\ Ramadito\r\n\ @version\ Mdoul\ 4,\ 1\ April\ 2021\r\n
+comment1.params=id\ job\ date\ jobseeker\ invoicestatus
+comment1.target=EwalletPayment(int,\ Job,\ java.lang.String,\ JobSeeker,\ InvoiceStatus)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ EwalletPayment\r\n
+comment2.params=id\ job\ date\ jobseeker\ invoicestatus\ bonus
+comment2.target=EwalletPayment(int,\ Job,\ java.lang.String,\ JobSeeker,\ InvoiceStatus,\ Bonus)
+comment3.params=
+comment3.target=PaymentType\ getPaymentType()
+comment3.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
+comment4.params=
+comment4.target=Bonus\ getBonus()
+comment5.params=bonus
+comment5.target=void\ setBonus(Bonus)
+comment6.params=
+comment6.target=void\ setTotalFee()
+comment7.params=
+comment7.target=void\ printData()
+numComments=8
