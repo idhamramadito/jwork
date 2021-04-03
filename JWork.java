@@ -41,9 +41,8 @@ public class JWork
         
         webdev.printData();
         pertama.printData();
-        */
        
-        // MODUL 4
+         * MODUL 4
         JobSeeker jason = new JobSeeker(001, "Jason Bourne", "bourne.001@gmail.com", "080987654321", "28 Maret 2021");
         Bonus bonus1 = new Bonus(1, "QWERTY", 10000, 1000, true);
         Bonus bonus2 = new Bonus(2, "ASDFGH", 50000, 5000, true);
@@ -61,6 +60,21 @@ public class JWork
         epay1.printData();
         epay2.printData();
         epay3.printData();
+        */
+       
+        JobSeeker jason = new JobSeeker(001, "Jason Bourne", "bourne.001@gmail.com", "080987654321", "28 Maret 2021");
+        Bonus bonus1 = new Bonus(1, "QWERTY", 10000, 1000, true);
+        Bonus bonus2 = new Bonus(2, "ASDFGH", 50000, 5000, true);
+        Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
+        Recruiter james = new Recruiter(007, "Hizkia Eben", "bond.007@gmail.com", "081234567890", medan);
+        Job webdev = new Job(007, "Senior Designer", james, 500000, JobCategory.WebDeveloper);
+        BankPayment bpay1 = new BankPayment(1, webdev, "1 April 2021", jason, InvoiceStatus.OnGoing);
+        BankPayment bpay2 = new BankPayment(2, webdev, "1 April 2021", jason, InvoiceStatus.Finished, 2000);
         
+        bpay1.setTotalFee();
+        bpay2.setTotalFee();
+        
+        bpay1.printData();
+        bpay2.printData();
     }
 }

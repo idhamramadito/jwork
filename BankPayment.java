@@ -1,28 +1,28 @@
 
 /**
- * Write a description of class EwalletPayment here.
+ * Write a description of class BankPayment here.
  *
  * @author Idham Ramadito
- * @version Mdoul 4, 1 April 2021
+ * @version PT Modul 4, 3 April 2021
  */
-public class EwalletPayment extends Invoice
+public class BankPayment extends Invoice
 {
     // instance variables - replace the example below with your own
-    private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
-    private Bonus bonus;
+    private static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
+    private int adminFee;
 
     /**
-     * Constructor for objects of class EwalletPayment
+     * Constructor for objects of class BankPayment
      */
-    public EwalletPayment(int id, Job job, String date, JobSeeker jobseeker, InvoiceStatus invoicestatus)
+    public BankPayment(int id, Job job, String date, JobSeeker jobseeker, InvoiceStatus invoicestatus)
     {
         super(id, job, date, jobseeker, invoicestatus);
         
     }
-    public EwalletPayment(int id, Job job, String date, JobSeeker jobseeker, InvoiceStatus invoicestatus, Bonus bonus)
+    public BankPayment(int id, Job job, String date, JobSeeker jobseeker, InvoiceStatus invoicestatus, int adminFee)
     {
         super(id, job, date, jobseeker, invoicestatus);
-        this.bonus = bonus;
+        this.adminFee = adminFee;
     }
 
     /**
@@ -36,22 +36,22 @@ public class EwalletPayment extends Invoice
         return PAYMENT_TYPE;
     }
     
-    public Bonus getBonus()
+    public int getAdminFee()
     {
         
-        return bonus;
+        return adminFee;
     }
     
-    public void setBonus(Bonus bonus)
+    public void setAdminFee(int adminFee)
     {
-        this.bonus = bonus;
+        this.adminFee = adminFee;
     }
     
     @Override
     public void setTotalFee()
     {
-        if (bonus != null && bonus.getActive() && super.getJob().getFee() > bonus.getMinTotalFee()){
-            super.totalFee = super.getJob().getFee() + bonus.getExtraFee();
+        if (adminFee != 0){
+            super.totalFee = super.getJob().getFee() - adminFee;
         } else 
         {
             super.totalFee = super.getJob().getFee();
@@ -66,12 +66,9 @@ public class EwalletPayment extends Invoice
         System.out.println("Job              = "+super.getJob().getName());
         System.out.println("Date             = "+super.getDate());
         System.out.println("Seeker           = "+super.getJobseeker().getName());
-        System.out.println("Fee              = "+super.totalFee);
-        
-        if (bonus != null && bonus.getActive() && super.totalFee > bonus.getMinTotalFee()) {
-            System.out.println("Referral Code    = "+bonus.getReferralCode());
-        }
-        
+        System.out.println("Admin Fee        = "+getAdminFee());
+        setTotalFee();
+        System.out.println("Total Fee        = "+super.totalFee);
         System.out.println("Status           = "+super.getInvoiceStatus().toString());
         System.out.println("Payment Type     = "+PAYMENT_TYPE.toString());
     }
