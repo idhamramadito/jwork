@@ -91,9 +91,9 @@ public class Bonus
         
     }
     
-    public void printData()
+    @Override
+    public String toString()
     {
-        
+        return String.format("Id = %d\nReferral Code = %s\nExtra Fee = %d\nMin Total Fee = %d\nActive status = %s", id, referralCode, extraFee, minTotalFee, active);
     }
-    
 }

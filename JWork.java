@@ -1,3 +1,4 @@
+import java.util.GregorianCalendar;
 
 /**
  * Write a description of class JWork here.
@@ -60,8 +61,8 @@ public class JWork
         epay1.printData();
         epay2.printData();
         epay3.printData();
-        */
-       
+        
+         * MODUL 5
         JobSeeker jason = new JobSeeker(001, "Jason Bourne", "bourne.001@gmail.com", "080987654321", "28 Maret 2021");
         Bonus bonus1 = new Bonus(1, "QWERTY", 10000, 1000, true);
         Bonus bonus2 = new Bonus(2, "ASDFGH", 50000, 5000, true);
@@ -76,5 +77,21 @@ public class JWork
         
         bpay1.printData();
         bpay2.printData();
+        */
+       
+        GregorianCalendar tanggal = new GregorianCalendar(2021, 5, 8);
+        
+        JobSeeker calendar = new JobSeeker(1, "John", ".johndoe@ui.ac.id", "abc", tanggal);
+        JobSeeker ymd = new JobSeeker(2, "John", "john.doe@ui.ac.id", "Abc890", 2021, 5, 8);
+        JobSeeker nodate = new JobSeeker(3, "John", "john.doe@ui.ac.id", "Abc890");
+        
+        System.out.println(calendar.toString());
+        System.out.println(ymd.toString());
+        System.out.println(nodate.toString());
+        
+        calendar.setEmail("johndoe@ui.ac.id");
+        calendar.setPassword("John123");
+        
+        System.out.println(calendar.toString());
     }
 }

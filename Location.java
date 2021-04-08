@@ -89,13 +89,15 @@ public class Location
      * metode untuk melakukan printout dari class Location
      * output dari Location berisikan nama provinsi, kota, dan deksripsi
      */
-    public void printData()
+    @Override
+    public String toString()
     {
-        System.out.println(
+        /* System.out.println(
         "\n----Location----\n" +
         "Provinsi = "+province +"\n" +
         "Kota = "+city +"\n" +
         "Deskripsi = "+description
-        );
+        ); */
+        return String.format("Provinsi = %s\nCity = %s\nDescription = %s", province, city, description);
     }
 }

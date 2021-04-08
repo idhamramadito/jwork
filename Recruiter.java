@@ -110,15 +110,17 @@ public class Recruiter
         this.location = location;
     }
     
-    public void printData()
+    @Override
+    public String toString()
     {
-        System.out.println(
+        /* System.out.println(
         "\n----Recruiter----\n" +
         "ID          = "+id +"\n" +
         "Nama        = "+name +"\n" +
         "Email       = "+email +"\n" +
         "No. Telepon = "+phoneNumber +"\n" +
         "Lokasi      = "+location.getCity()
-        );
+        ); */
+        return String.format("Id = %d\nName = %s\nEmail = %s\nPhoneNumber = %s\nLocation = %s", id, name, email, phoneNumber, location.getCity());
     }
 }

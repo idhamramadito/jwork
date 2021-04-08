@@ -110,9 +110,10 @@ public class Job
         this.category = category;
     }
     
-    public void printData()
+    @Override
+    public String toString()
     {
-        System.out.println(
+        /* System.out.println(
         "\n==========Job==========\n" +
         "ID        = "+id +"\n" +
         "Name      = "+name +"\n" +
@@ -121,6 +122,7 @@ public class Job
         "Fee       = "+fee +"\n" +
         "Category  = "+category
         );
-        
+        */
+        return String.format("Id = %d\nName = %s\nRecruiter = %s\nCity = %s\nFee = %d\nCategory = %s", id, name, recruiter.getName(), recruiter.getLocation().getCity(), fee, category);
     }
 }

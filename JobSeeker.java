@@ -1,3 +1,8 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 /**
  * Write a description of class JobSeeker here.
@@ -12,20 +17,37 @@ public class JobSeeker
     private String name;
     private String email;
     private String password;
-    private String joinDate;
+    public Calendar joinDate;
 
     /**
      * Constructor for objects of class JobSeeker
      */
-    public JobSeeker(int id, String name, String email, String password, String joinDate)
+    public JobSeeker(int id, String name, String email, String password, Calendar joinDate)
+    {
+        this.id = id;
+        this.name = name;
+        setEmail(email);
+        setPassword(password);
+        setJoinDate(joinDate);
+    }
+    
+    public JobSeeker(int id, String name, String email, String password, int year, int month, int dayOfMonth)
     {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.joinDate = joinDate;
+        setJoinDate(year, month, dayOfMonth);
     }
 
+    public JobSeeker(int id, String name, String email, String password)
+    {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+    
     public int getId()
     {
         
@@ -50,7 +72,7 @@ public class JobSeeker
         return password;
     }
     
-    public String getJoinDate()
+    public Calendar getJoinDate()
     {
         
         return joinDate;
@@ -70,31 +92,51 @@ public class JobSeeker
     
     public void setEmail(String email)
     {
+        Pattern pattern = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+        Matcher matcher = pattern.matcher(email);
         
+        if (matcher.matches()) {
         this.email = email;
+    }
     }
     
     public void setPassword(String password)
     {
+        Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z[0-9]]{6,}$");
+        Matcher matcher = pattern.matcher(password);
         
+        if (matcher.matches()) {
         this.password = password;
     }
+    }
     
-    public void setJoinDate(String joinDate)
+    public void setJoinDate(Calendar joinDate)
     {
         
         this.joinDate = joinDate;
     }
     
-    public void printData()
+    public void setJoinDate(int year, int month, int dayOfMonth)
     {
-        System.out.println(
+        
+        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
+    }
+    
+    @Override
+    public String toString()
+    {
+        /* System.out.println(
         "\n----JobSeeker----\n" +
         "ID            = "+id +"\n" +
         "Nama          = "+name +"\n" +
         "Email         = "+email +"\n" +
         "Password      = "+password +"\n" +
         "Tanggal Masuk = "+joinDate
-        );
+        ); */
+        SimpleDateFormat ft = new SimpleDateFormat ("dd MMMM yyy");
+        if (joinDate != null) {
+            return String.format("Id = %d\nNama = %s\nEmail = %s\nPassword = %s\nJoin Date = %s", id, name, email, password, ft.format(joinDate.getTime()));
+        }
+        return String.format("Id = %d\nNama = %s\nEmail = %s\nPassword = %s", id, name, email, password);
     }
 }
