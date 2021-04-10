@@ -94,6 +94,6 @@ public class Bonus
     @Override
     public String toString()
     {
-        return String.format("Id = %d\nReferral Code = %s\nExtra Fee = %d\nMin Total Fee = %d\nActive status = %s", id, referralCode, extraFee, minTotalFee, active);
+        return String.format("Id = %d\nReferral Code = %s\nExtra Fee = %d\nMin Total Fee = %d\nActive status = %s\n", id, referralCode, extraFee, minTotalFee, active);
     }
 }

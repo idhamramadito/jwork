@@ -1,3 +1,5 @@
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 /**
  * Write a description of class EwalletPayment here.
@@ -14,12 +16,12 @@ public class EwalletPayment extends Invoice
     /**
      * Constructor for objects of class EwalletPayment
      */
-    public EwalletPayment(int id, Job job, String date, JobSeeker jobseeker, InvoiceStatus invoicestatus)
+    public EwalletPayment(int id, Job job, Calendar date, JobSeeker jobseeker, InvoiceStatus invoicestatus)
     {
         super(id, job, date, jobseeker, invoicestatus);
         
     }
-    public EwalletPayment(int id, Job job, String date, JobSeeker jobseeker, InvoiceStatus invoicestatus, Bonus bonus)
+    public EwalletPayment(int id, Job job, Calendar date, JobSeeker jobseeker, InvoiceStatus invoicestatus, Bonus bonus)
     {
         super(id, job, date, jobseeker, invoicestatus);
         this.bonus = bonus;
@@ -59,9 +61,9 @@ public class EwalletPayment extends Invoice
     }
     
     @Override
-    public void printData()
+    public String toString()
     {
-        System.out.println("\n==========Invoice==========\n");
+        /* System.out.println("\n==========Invoice==========\n");
         System.out.println("ID               = "+super.getId());
         System.out.println("Job              = "+super.getJob().getName());
         System.out.println("Date             = "+super.getDate());
@@ -73,6 +75,11 @@ public class EwalletPayment extends Invoice
         }
         
         System.out.println("Status           = "+super.getInvoiceStatus().toString());
-        System.out.println("Payment Type     = "+PAYMENT_TYPE.toString());
+        System.out.println("Payment Type     = "+PAYMENT_TYPE.toString()); */
+        SimpleDateFormat ft = new SimpleDateFormat ("dd MMMM yyy");
+        if (bonus != null && bonus.getActive() && super.totalFee > bonus.getMinTotalFee()) {
+            return String.format("Id = %d\nJob = %s\nDate = %s\nSeeker = %s\nFee = %d\nReferral Code = %s\nStatus = %s\nPayment Type = %s", getId(), getJob(), ft.format(getDate().getTime()), getJobseeker().getName(), getTotalfee(), getBonus().getReferralCode(), getInvoiceStatus(), PAYMENT_TYPE);
+        }
+        return String.format("Id = %d\nJob = %s\nDate = %s\nSeeker = %s\nFee = %d\nStatus = %s\nPayment Type = %s\n", getId(), getJob(), ft.format(getDate().getTime()), getJobseeker().getName(), getTotalfee(), getInvoiceStatus(), PAYMENT_TYPE);
     }
 }

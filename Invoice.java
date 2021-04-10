@@ -1,3 +1,6 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
 
 /**
  * Write a description of class Invoice here.
@@ -9,7 +12,7 @@ abstract class Invoice
 {
     private int id;
     private Job job;
-    private String date;
+    private Calendar date;
     protected int totalFee;
     private JobSeeker jobseeker;
     private InvoiceStatus invoicestatus;
@@ -17,11 +20,11 @@ abstract class Invoice
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Job job, String date, JobSeeker jobseeker, InvoiceStatus invoicestatus)
+    public Invoice(int id, Job job, Calendar date, JobSeeker jobseeker, InvoiceStatus invoicestatus)
     {
         this.id = id;
         this.job = job;
-        this.date = date;
+        setDate(date);
         this.jobseeker = jobseeker;
         this.invoicestatus = invoicestatus;
     }
@@ -44,7 +47,7 @@ abstract class Invoice
         return job;
     }
     
-    public String getDate()
+    public Calendar getDate()
     {
         
         return date;
@@ -83,10 +86,16 @@ abstract class Invoice
         this.job = job;
     }
     
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         
         this.date = date;
+    }
+    
+    public void setDate(int year, int month, int dayOfMonth)
+    {
+        
+        this.date = new GregorianCalendar(year, month, dayOfMonth);
     }
     
     public abstract void setTotalFee();
@@ -103,5 +112,10 @@ abstract class Invoice
         this.invoicestatus = invoicestatus;
     }
     
-    public abstract void printData();
+    @Override
+    public String toString()
+    {
+        SimpleDateFormat ft = new SimpleDateFormat ("dd MMMM yyy");
+        return String.format("Id = %d\nJob = %s\nDate = %s\nTotal Fee = %d\nJobseeker = %d\nInvoice status = %s\n", id, job, ft.format(date.getTime()), totalFee, jobseeker, invoicestatus);
+    }
 }

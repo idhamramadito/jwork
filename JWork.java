@@ -62,7 +62,7 @@ public class JWork
         epay2.printData();
         epay3.printData();
         
-         * MODUL 5
+         * MODUL 4 PT
         JobSeeker jason = new JobSeeker(001, "Jason Bourne", "bourne.001@gmail.com", "080987654321", "28 Maret 2021");
         Bonus bonus1 = new Bonus(1, "QWERTY", 10000, 1000, true);
         Bonus bonus2 = new Bonus(2, "ASDFGH", 50000, 5000, true);
@@ -77,12 +77,12 @@ public class JWork
         
         bpay1.printData();
         bpay2.printData();
-        */
-       
-        GregorianCalendar tanggal = new GregorianCalendar(2021, 5, 8);
+        
+         * MODUL 5 CS
+        GregorianCalendar tanggal = new GregorianCalendar(2021, 3, 8);
         
         JobSeeker calendar = new JobSeeker(1, "John", ".johndoe@ui.ac.id", "abc", tanggal);
-        JobSeeker ymd = new JobSeeker(2, "John", "john.doe@ui.ac.id", "Abc890", 2021, 5, 8);
+        JobSeeker ymd = new JobSeeker(2, "John", "john.doe@ui.ac.id", "Abc890", 2021, 3, 8);
         JobSeeker nodate = new JobSeeker(3, "John", "john.doe@ui.ac.id", "Abc890");
         
         System.out.println(calendar.toString());
@@ -93,5 +93,24 @@ public class JWork
         calendar.setPassword("John123");
         
         System.out.println(calendar.toString());
+        */
+        
+        GregorianCalendar tanggal = new GregorianCalendar();
+        JobSeeker jason = new JobSeeker(001, "Jason Bourne", "bourne.001@gmail.com", "080987654321", tanggal);
+        Bonus bonus1 = new Bonus(1, "QWERTY", 10000, 1000, true);
+        Bonus bonus2 = new Bonus(2, "ASDFGH", 50000, 5000, true);
+        Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
+        Recruiter james = new Recruiter(007, "Hizkia Eben", "bond.007@gmail.com", "081234567890", medan);
+        Job webdev = new Job(007, "Senior Designer", james, 500000, JobCategory.WebDeveloper);
+        BankPayment bpay1 = new BankPayment(1, webdev, tanggal, jason, InvoiceStatus.OnGoing);
+        EwalletPayment epay2 = new EwalletPayment(2, webdev, tanggal, jason, InvoiceStatus.Finished, bonus1);
+        
+        bpay1.setTotalFee();
+        epay2.setTotalFee();
+        bpay1.setDate(tanggal);
+        epay2.setDate(tanggal);
+        
+        System.out.println(bpay1.toString());
+        System.out.println(epay2.toString());
     }
 }

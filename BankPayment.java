@@ -1,3 +1,5 @@
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 /**
  * Write a description of class BankPayment here.
@@ -14,12 +16,12 @@ public class BankPayment extends Invoice
     /**
      * Constructor for objects of class BankPayment
      */
-    public BankPayment(int id, Job job, String date, JobSeeker jobseeker, InvoiceStatus invoicestatus)
+    public BankPayment(int id, Job job, Calendar date, JobSeeker jobseeker, InvoiceStatus invoicestatus)
     {
         super(id, job, date, jobseeker, invoicestatus);
         
     }
-    public BankPayment(int id, Job job, String date, JobSeeker jobseeker, InvoiceStatus invoicestatus, int adminFee)
+    public BankPayment(int id, Job job, Calendar date, JobSeeker jobseeker, InvoiceStatus invoicestatus, int adminFee)
     {
         super(id, job, date, jobseeker, invoicestatus);
         this.adminFee = adminFee;
@@ -59,9 +61,9 @@ public class BankPayment extends Invoice
     }
     
     @Override
-    public void printData()
+    public String toString()
     {
-        System.out.println("\n==========Invoice==========\n");
+        /* System.out.println("\n==========Invoice==========\n");
         System.out.println("ID               = "+super.getId());
         System.out.println("Job              = "+super.getJob().getName());
         System.out.println("Date             = "+super.getDate());
@@ -70,6 +72,8 @@ public class BankPayment extends Invoice
         setTotalFee();
         System.out.println("Total Fee        = "+super.totalFee);
         System.out.println("Status           = "+super.getInvoiceStatus().toString());
-        System.out.println("Payment Type     = "+PAYMENT_TYPE.toString());
+        System.out.println("Payment Type     = "+PAYMENT_TYPE.toString()); */
+        SimpleDateFormat ft = new SimpleDateFormat ("dd MMMM yyy");
+        return String.format("Id = %d\nJob = %s\nDate = %s\nSeeker = %s\nAdmin Fee = %d\nTotal Fee = %d\nStatus = %s\nPayment Type = %s\n", getId(), getJob(), ft.format(getDate().getTime()), getJobseeker().getName(), getAdminFee(), getTotalfee(), getInvoiceStatus(), PAYMENT_TYPE);
     }
 }
