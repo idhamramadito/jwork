@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class DatabaseRecruiter here.
@@ -8,7 +9,8 @@
 public class DatabaseRecruiter
 {
     // instance variables - replace the example below with your own
-    private static String[] listRecruiter;
+    private static ArrayList<Recruiter> RECRUITER_DATABASE = new ArrayList<Recruiter>();
+    private static int lastId=0;
     
     /**
      * An example of a method - replace this comment with your own
@@ -16,27 +18,44 @@ public class DatabaseRecruiter
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
+    public static ArrayList<Recruiter> getRecruiterDatabase()
+    {
+        return RECRUITER_DATABASE;
+    }
+
+    public static int getLastId()
+    {
+        return lastId;
+    }
+
+    public static Recruiter getRecruiterById(int id) {
+        Recruiter dummy = null;
+        for (Recruiter recruiter : RECRUITER_DATABASE) {
+            if (recruiter.getId() == id) {
+                dummy = recruiter;
+            } else {
+                return dummy;
+            }
+        }
+        return dummy;
+    }
+
     public static boolean addRecruiter(Recruiter recruiter)
     {
-        
+        RECRUITER_DATABASE.add(recruiter);
+        lastId = recruiter.getId();
         return true;
     }
     
-    public static boolean removeRecruiter(Recruiter recruiter)
+    public static boolean removeRecruiter(int id)
     {
-        
-        return true;
+        for (Recruiter recruiter : RECRUITER_DATABASE){
+            if (recruiter.getId() == id){
+                RECRUITER_DATABASE.remove(recruiter);
+                return true;
+            }
+        }
+        return false;
     }
-    
-    public static Recruiter getRecruiter()
-    {
-        
-        return null;
-    }
-    
-    public static String[] getListRecruiter()
-    {
-        
-        return listRecruiter;
-    }
+
 }

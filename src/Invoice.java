@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
@@ -11,7 +12,7 @@ import java.text.SimpleDateFormat;
 abstract class Invoice
 {
     private int id;
-    private Job job;
+    private ArrayList<Job> jobs;
     private Calendar date;
     protected int totalFee;
     private JobSeeker jobseeker;
@@ -20,13 +21,13 @@ abstract class Invoice
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Job job, Calendar date, JobSeeker jobseeker, InvoiceStatus invoicestatus)
+    public Invoice(int id, ArrayList<Job> jobs, Calendar date, JobSeeker jobseeker)
     {
         this.id = id;
-        this.job = job;
+        //this.jobs = ArrayList<Job>;
         setDate(date);
         this.jobseeker = jobseeker;
-        this.invoicestatus = invoicestatus;
+        this.invoicestatus = invoicestatus.OnGoing;
     }
 
     /**
@@ -41,10 +42,10 @@ abstract class Invoice
         return id;
     }
     
-    public Job getJob()
+    public ArrayList<Job> getJobs()
     {
         
-        return job;
+        return jobs;
     }
     
     public Calendar getDate()
@@ -80,10 +81,10 @@ abstract class Invoice
         this.id = id;
     }
     
-    public void setJob(Job job)
+    public void setJobs(ArrayList<Job> jobs)
     {
         
-        this.job = job;
+        this.jobs = jobs;
     }
     
     public void setDate(Calendar date)
@@ -116,6 +117,6 @@ abstract class Invoice
     public String toString()
     {
         SimpleDateFormat ft = new SimpleDateFormat ("dd MMMM yyy");
-        return String.format("Id = %d\nJob = %s\nDate = %s\nTotal Fee = %d\nJobseeker = %d\nInvoice status = %s\n", id, job, ft.format(date.getTime()), totalFee, jobseeker, invoicestatus);
+        return String.format("Id = %d\nJob = %s\nDate = %s\nTotal Fee = %d\nJobseeker = %d\nInvoice status = %s\n", id, jobs, ft.format(date.getTime()), totalFee, jobseeker, invoicestatus);
     }
 }

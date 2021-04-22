@@ -93,22 +93,42 @@ public class JWork
         calendar.setPassword("John123");
         
         System.out.println(calendar.toString());
-        */
-        
-        GregorianCalendar tanggal = new GregorianCalendar();
+
+         * MODUL 5 PT
+        * GregorianCalendar tanggal = new GregorianCalendar();
         JobSeeker jason = new JobSeeker(1, "John", ".johndoe@ui.ac.id", "abc", tanggal);
         Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
         Recruiter james = new Recruiter(007, "Hizkia Eben", "bond.007@gmail.com", "081234567890", medan);
         Job webdev = new Job(007, "Senior Designer", james, 500000, JobCategory.WebDeveloper);
         BankPayment bpay1 = new BankPayment(1, webdev, tanggal, jason, InvoiceStatus.OnGoing);
         EwalletPayment epay2 = new EwalletPayment(2, webdev, tanggal, jason, InvoiceStatus.Finished);
-        
+
         bpay1.setTotalFee();
         epay2.setTotalFee();
         bpay1.setDate(tanggal);
         epay2.setDate(tanggal);
-        
+
         System.out.println(bpay1.toString());
         System.out.println(epay2.toString());
+        */
+
+        Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
+        DatabaseRecruiter.addRecruiter(new Recruiter(007, "Hizkia Eben", "bond.007@gmail.com", "081234567890", medan));
+        DatabaseJobseeker.addJobSeeker(new JobSeeker(1, "John", "johndoe@ui.ac.id", "abc890", 2021, 3, 8));
+        DatabaseJobseeker.addJobSeeker(new JobSeeker(2, "Doe", "johndoe@ui.ac.id", "eda890", 2021, 4, 8));
+        DatabaseJobseeker.addJobSeeker(new JobSeeker(3, "John Doe", "johndoer@ui.ac.id", "Abc890", 2021, 4, 8));
+        for (JobSeeker jobSeeker : DatabaseJobseeker.getDatabaseJobSeeker()) {
+            System.out.println(jobSeeker.getName());
+            System.out.println(jobSeeker.getId());
+        }
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Senior Designer", DatabaseRecruiter.getRecruiterById(007), 500000, JobCategory.FrontEnd));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "HTML Coder", DatabaseRecruiter.getRecruiterById(007), 500000, JobCategory.BackEnd));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Programmer", DatabaseRecruiter.getRecruiterById(007), 500000, JobCategory.BackEnd));
+        for (Job job : DatabaseJob.getJobByCategory(JobCategory.BackEnd)) {
+            System.out.println(job.getName());
+        }
+        for (Job job : DatabaseJob.getJobByCategory(JobCategory.FrontEnd)) {
+            System.out.println(job.getName());
+        }
     }
 }
