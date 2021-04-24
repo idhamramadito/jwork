@@ -113,22 +113,27 @@ public class JWork
         */
 
         Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
-        DatabaseRecruiter.addRecruiter(new Recruiter(007, "Hizkia Eben", "bond.007@gmail.com", "081234567890", medan));
+        DatabaseRecruiter.addRecruiter(new Recruiter(7, "Hizkia Eben", "bond.007@gmail.com", "081234567890", medan));
         DatabaseJobseeker.addJobSeeker(new JobSeeker(1, "John", "johndoe@ui.ac.id", "abc890", 2021, 3, 8));
         DatabaseJobseeker.addJobSeeker(new JobSeeker(2, "Doe", "johndoe@ui.ac.id", "eda890", 2021, 4, 8));
         DatabaseJobseeker.addJobSeeker(new JobSeeker(3, "John Doe", "johndoer@ui.ac.id", "Abc890", 2021, 4, 8));
         for (JobSeeker jobSeeker : DatabaseJobseeker.getDatabaseJobSeeker()) {
-            System.out.println(jobSeeker.getName());
-            System.out.println(jobSeeker.getId());
+            System.out.println(jobSeeker);
         }
-        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Senior Designer", DatabaseRecruiter.getRecruiterById(007), 500000, JobCategory.FrontEnd));
-        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "HTML Coder", DatabaseRecruiter.getRecruiterById(007), 500000, JobCategory.BackEnd));
-        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Programmer", DatabaseRecruiter.getRecruiterById(007), 500000, JobCategory.BackEnd));
+
+        DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "QWERTY", 10000, 1000, false));
+        DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "ZXCVBN", 20000, 2000, true));
+        for (Bonus bonus : DatabaseBonus.getBonusByReferralCode()) {
+            System.out.println(bonus);
+        }
+
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Senior Designer", DatabaseRecruiter.getRecruiterById(7), 500000, JobCategory.FrontEnd));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Programmer", DatabaseRecruiter.getRecruiterById(7), 500000, JobCategory.BackEnd));
         for (Job job : DatabaseJob.getJobByCategory(JobCategory.BackEnd)) {
-            System.out.println(job.getName());
+            System.out.println(job);
         }
         for (Job job : DatabaseJob.getJobByCategory(JobCategory.FrontEnd)) {
-            System.out.println(job.getName());
+            System.out.println(job);
         }
     }
 }
