@@ -123,7 +123,7 @@ public class JWork
 
         DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "QWERTY", 10000, 1000, false));
         DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "ZXCVBN", 20000, 2000, true));
-        for (Bonus bonus : DatabaseBonus.getBonusByReferralCode()) {
+        for (Bonus bonus : DatabaseBonus.getBonusDatabase()) {
             System.out.println(bonus);
         }
 
