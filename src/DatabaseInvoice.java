@@ -34,7 +34,11 @@ public class DatabaseInvoice {
         return dummy;
     }
 
-    public static boolean addInvoice(Invoice invoice){
+    public static boolean addInvoice(Invoice invoice)
+    {
+        for (Invoice a : INVOICE_DATABASE)
+            if (a.getId() == invoice.getId() && a.getInvoiceStatus() == InvoiceStatus.OnGoing)
+                return false;
         INVOICE_DATABASE.add(invoice);
         lastId = invoice.getId();
         return true;

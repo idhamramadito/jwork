@@ -27,23 +27,26 @@ public class DatabaseJobseeker
     {
         return lastId;
     }
-    public static JobSeeker getJobSeekerById(int id) {
+    public static JobSeeker getJobSeekerById(int id) throws JobSeekerNotFoundException
+    {
         JobSeeker dummy = null;
-        for (JobSeeker jobSeeker : JOBSEEKER_DATABASE) {
-            if (jobSeeker.getId() == id) {
+        for (JobSeeker jobSeeker : JOBSEEKER_DATABASE)
+        {
+            if (jobSeeker.getId() == id)
+            {
                 dummy = jobSeeker;
             } else {
                 return dummy;
             }
         }
-        return dummy;
+        throw new JobSeekerNotFoundException(id);
     }
 
-    public static boolean addJobSeeker(JobSeeker jobSeeker)
+    public static boolean addJobSeeker(JobSeeker jobSeeker) throws EmailAlreadyExistsException
     {
         for (JobSeeker orang : JOBSEEKER_DATABASE) {
             if (jobSeeker.getEmail() == orang.getEmail()) {
-                return false;
+                throw new EmailAlreadyExistsException(jobSeeker);
             }
         }
         JOBSEEKER_DATABASE.add(jobSeeker);
@@ -51,14 +54,15 @@ public class DatabaseJobseeker
         return true;
     }
 
-    public static boolean removeJobSeeker(int id)
+    public static boolean removeJobSeeker(int id) throws JobSeekerNotFoundException
     {
         for (JobSeeker jobSeeker : JOBSEEKER_DATABASE){
-            if (jobSeeker.getId() == id){
+            if (jobSeeker.getId() == id)
+            {
                 JOBSEEKER_DATABASE.remove(jobSeeker);
                 return true;
             }
         }
-        return false;
+        throw new JobSeekerNotFoundException(id);
     }
 }

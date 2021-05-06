@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 /**
@@ -8,8 +9,7 @@ import java.util.GregorianCalendar;
  */
 public class JWork
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         /*
          * MODUL 1
         Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
@@ -110,8 +110,8 @@ public class JWork
 
         System.out.println(bpay1.toString());
         System.out.println(epay2.toString());
-        */
 
+         * MODUL 6
         Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
         DatabaseRecruiter.addRecruiter(new Recruiter(7, "Hizkia Eben", "bond.007@gmail.com", "081234567890", medan));
         DatabaseJobseeker.addJobSeeker(new JobSeeker(1, "John", "johndoe@ui.ac.id", "abc890", 2021, 3, 8));
@@ -134,6 +134,71 @@ public class JWork
         }
         for (Job job : DatabaseJob.getJobByCategory(JobCategory.FrontEnd)) {
             System.out.println(job);
+        }
+        */
+
+        try {
+            DatabaseJobseeker.addJobSeeker(new JobSeeker(1, "John", "johndoe@ui.ac.id", "abc890", 2021, 3, 8));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseJobseeker.addJobSeeker(new JobSeeker(2, "Doe", "johndoe@ui.ac.id", "eda890", 2021, 4, 8));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseJobseeker.addJobSeeker(new JobSeeker(3, "John Doe", "johndoer@ui.ac.id", "Abc890", 2021, 4, 8));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        for (JobSeeker jobSeeker : DatabaseJobseeker.getDatabaseJobSeeker()) {
+            System.out.println(jobSeeker.toString());
+        }
+
+        try {
+            DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId() + 1, "QWERTY", 10000, 1000, false));
+        } catch (ReferralCodeAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId() + 1, "QWERTY", 10000, 1000, false));
+        } catch (ReferralCodeAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId() + 1, "ZXCVBN", 20000, 2000, true));
+        } catch (ReferralCodeAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        for (Bonus bonus : DatabaseBonus.getBonusDatabase()) {
+            System.out.println(bonus.toString());
+        }
+
+        Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
+        JobSeeker jason = new JobSeeker(1, "John", "johndoe@ui.ac.id", "12345", 2021, 4, 6);
+        Recruiter eben = new Recruiter(1, "Hizkia Eben", "bond.007@gmail.com", "081234567890", medan);
+        Job webdev = new Job(1, "Senior Designer", 500000, JobCategory.WebDeveloper, eben);
+        JobSeeker doe = new JobSeeker(2, "Doe", "doe@ui.ac.id", "12345", 2021, 4, 6);
+        Recruiter salman = new Recruiter(2, "Salman Alfarisi", "salman@gmail.com", "081234567890", medan);
+        Job UI = new Job(2, "UI", 500000, JobCategory.UI, salman);
+        JobSeeker jack = new JobSeeker(3, "Jack", "jack@ui.ac.id", "12345", 2021, 4, 6);
+        Recruiter farhan = new Recruiter(3, "Muhammad Farhan", "farhan@gmail.com", "081234567890", medan);
+        Job Devops = new Job(3, "DevOps", 500000, JobCategory.Devops, farhan);
+        GregorianCalendar tanggal = new GregorianCalendar();
+        ArrayList<Job> JOBS = new ArrayList<Job>();
+        JOBS.add(webdev);
+        JOBS.add(UI);
+        JOBS.add(Devops);
+        BankPayment bpay1 = new BankPayment(DatabaseInvoice.getLastId() + 1, JOBS, tanggal, jason);
+        BankPayment bpay2 = new BankPayment(DatabaseInvoice.getLastId() + 1, JOBS, tanggal, doe);
+        BankPayment bpay3 = new BankPayment(DatabaseInvoice.getLastId() + 1, JOBS, tanggal, jack);
+        DatabaseInvoice.addInvoice((bpay1));
+        DatabaseInvoice.addInvoice((bpay2));
+        DatabaseInvoice.addInvoice((bpay3));
+        for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()) {
+            new Thread(new FeeCalculator(invoice)).start();
         }
     }
 }

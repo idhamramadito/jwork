@@ -29,7 +29,7 @@ public class DatabaseJob
         return lastId;
     }
 
-    public static Job getJobById(int id)
+    public static Job getJobById(int id) throws JobNotFoundException
     {
         Job dummy = null;
         for (Job job : JOB_DATABASE) {
@@ -39,7 +39,7 @@ public class DatabaseJob
                 return dummy;
             }
         }
-        return dummy;
+        throw new JobNotFoundException(id);
     }
 
     public static ArrayList<Job> getJobByRecruiter(int recruiterId)
@@ -71,8 +71,16 @@ public class DatabaseJob
         return true;
     }
 
-    public static boolean removeJob(int id)
+    public static boolean removeJob(int id) throws JobNotFoundException
     {
-        return true;
+        for (Job job : JOB_DATABASE)
+        {
+            if (job.getId() == id)
+            {
+                JOB_DATABASE.remove(job);
+                return true;
+            }
+        }
+        throw new JobNotFoundException(id);
     }
 }
