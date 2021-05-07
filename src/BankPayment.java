@@ -17,14 +17,14 @@ public class BankPayment extends Invoice
     /**
      * Constructor for objects of class BankPayment
      */
-    public BankPayment(int id, ArrayList<Job> jobs, Calendar date, JobSeeker jobseeker)
+    public BankPayment(int id, ArrayList<Job> jobs, JobSeeker jobseeker)
     {
-        super(id, jobs, date, jobseeker);
+        super(id, jobs, jobseeker);
         
     }
-    public BankPayment(int id, ArrayList<Job> jobs, Calendar date, JobSeeker jobseeker, int adminFee)
+    public BankPayment(int id, ArrayList<Job> jobs, JobSeeker jobseeker, int adminFee)
     {
-        super(id, jobs, date, jobseeker);
+        super(id, jobs, jobseeker);
         this.adminFee = adminFee;
     }
 

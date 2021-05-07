@@ -17,14 +17,14 @@ public class EwalletPayment extends Invoice
     /**
      * Constructor for objects of class EwalletPayment
      */
-    public EwalletPayment(int id, ArrayList<Job> jobs, Calendar date, JobSeeker jobseeker)
+    public EwalletPayment(int id, ArrayList<Job> jobs, JobSeeker jobseeker)
     {
-        super(id, jobs, date, jobseeker);
+        super(id, jobs, jobseeker);
         
     }
-    public EwalletPayment(int id, ArrayList<Job> jobs, Calendar date, JobSeeker jobseeker, Bonus bonus)
+    public EwalletPayment(int id, ArrayList<Job> jobs, JobSeeker jobseeker, Bonus bonus)
     {
-        super(id, jobs, date, jobseeker);
+        super(id, jobs, jobseeker);
         this.bonus = bonus;
     }
 

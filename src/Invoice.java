@@ -21,13 +21,13 @@ abstract class Invoice
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, ArrayList<Job> jobs, Calendar date, JobSeeker jobseeker)
+    public Invoice(int id, ArrayList<Job> jobs, JobSeeker jobseeker)
     {
         this.id = id;
-        //this.jobs = ArrayList<Job>;
-        setDate(date);
+        this.jobs = jobs;
         this.jobseeker = jobseeker;
         this.invoicestatus = invoicestatus.OnGoing;
+        this.date = new GregorianCalendar();
     }
 
     /**
@@ -93,7 +93,7 @@ abstract class Invoice
         this.date = date;
     }
     
-    public void setDate(int year, int month, int dayOfMonth)
+    public void setJoinDate(int year, int month, int dayOfMonth)
     {
         
         this.date = new GregorianCalendar(year, month, dayOfMonth);
@@ -112,7 +112,7 @@ abstract class Invoice
         
         this.invoicestatus = invoicestatus;
     }
-    
+
     @Override
     public String toString()
     {
