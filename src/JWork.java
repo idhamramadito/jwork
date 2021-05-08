@@ -189,12 +189,25 @@ public class JWork
         DatabaseJob.addJob(webdev);
         DatabaseJob.addJob(UI);
         DatabaseJob.addJob(Devops);
-        BankPayment bpay1 = new BankPayment(DatabaseInvoice.getLastId() + 1, DatabaseJob.getJobDatabase(), jason);
-        BankPayment bpay2 = new BankPayment(DatabaseInvoice.getLastId() + 1, DatabaseJob.getJobDatabase(),  doe);
-        BankPayment bpay3 = new BankPayment(DatabaseInvoice.getLastId() + 1, DatabaseJob.getJobDatabase(), jack);
-        DatabaseInvoice.addInvoice((bpay1));
-        DatabaseInvoice.addInvoice((bpay2));
-        DatabaseInvoice.addInvoice((bpay3));
+        BankPayment bpay1 = new BankPayment(1, DatabaseJob.getJobDatabase(), jason);
+        BankPayment bpay2 = new BankPayment(1, DatabaseJob.getJobDatabase(),  doe);
+        BankPayment bpay3 = new BankPayment(3, DatabaseJob.getJobDatabase(), jack);
+        try {
+            DatabaseInvoice.addInvoice((bpay1));
+        } catch (OngoingInvoiceAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseInvoice.addInvoice((bpay2));
+        } catch (OngoingInvoiceAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseInvoice.addInvoice((bpay3));
+        } catch (OngoingInvoiceAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
         for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()) {
             new Thread(new FeeCalculator(invoice)).start();
         }
