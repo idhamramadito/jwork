@@ -22,7 +22,7 @@ public class Job
      * @param category merupakan panggilan dari enum JobCategory sebagai kategori dari Job
      * @param recruiter merupakan panggilan dari class recruiter sebagai siapa perekrut dari Job ini
      */
-    public Job(int id, String name, int fee, JobCategory category, Recruiter recruiter)
+    public Job(int id, String name, Recruiter recruiter, int fee, JobCategory category)
     {
         this.id = id;
         this.name = name;

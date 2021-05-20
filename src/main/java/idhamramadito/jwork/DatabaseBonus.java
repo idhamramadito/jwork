@@ -11,7 +11,7 @@ public class DatabaseBonus
 {
     // instance variables - replace the example below with your own
     private static ArrayList<Bonus> BONUS_DATABASE = new ArrayList<Bonus>();
-    private static int lastId;
+    private static int lastId=0;
     
     /**
      * An example of a method - replace this comment with your own

@@ -36,11 +36,13 @@ public class DatabaseJob
         for (Job job : JOB_DATABASE) {
             if (job.getId() == id) {
                 dummy = job;
-            } else {
-                return dummy;
             }
         }
-        throw new JobNotFoundException(id);
+        if (dummy == null)
+        {
+            throw new JobNotFoundException(id);
+        }
+        return dummy;
     }
 
     public static ArrayList<Job> getJobByRecruiter(int recruiterId)

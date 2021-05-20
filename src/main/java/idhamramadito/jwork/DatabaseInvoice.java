@@ -21,11 +21,13 @@ public class DatabaseInvoice {
             if (invoice.getId() == id)
             {
                 dummy = invoice;
-            } else {
-                return dummy;
             }
         }
-        throw new InvoiceNotFoundException(id);
+        if (dummy == null)
+        {
+            throw new InvoiceNotFoundException(id);
+        }
+        return dummy;
     }
 
     public static ArrayList<Invoice> getInvoiceByJobSeeker(int jobSeekerId){

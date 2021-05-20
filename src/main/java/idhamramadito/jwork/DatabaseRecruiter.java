@@ -36,11 +36,13 @@ public class DatabaseRecruiter
         {
             if (recruiter.getId() == id) {
                 dummy = recruiter;
-            } else {
-                return dummy;
             }
         }
-        throw new RecruiterNotFoundException(id);
+        if (dummy == null)
+        {
+            throw new RecruiterNotFoundException(id);
+        }
+        return dummy;
     }
 
     public static boolean addRecruiter(Recruiter recruiter)

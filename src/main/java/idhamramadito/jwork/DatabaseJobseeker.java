@@ -16,7 +16,6 @@ public class DatabaseJobseeker
     /**
      * An example of a method - replace this comment with your own
      *
-     * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
     public static ArrayList<JobSeeker> getDatabaseJobSeeker()
@@ -36,11 +35,13 @@ public class DatabaseJobseeker
             if (jobSeeker.getId() == id)
             {
                 dummy = jobSeeker;
-            } else {
-                return dummy;
             }
         }
+        if (dummy == null)
+    {
         throw new JobSeekerNotFoundException(id);
+    }
+        return dummy;
     }
 
     public static boolean addJobSeeker(JobSeeker jobSeeker) throws EmailAlreadyExistsException
@@ -65,5 +66,18 @@ public class DatabaseJobseeker
             }
         }
         throw new JobSeekerNotFoundException(id);
+    }
+
+    public static JobSeeker jobSeekerLogin(String email, String password)
+    {
+        JobSeeker dummy = null;
+        for (JobSeeker jobSeeker : JOBSEEKER_DATABASE)
+        {
+            if (jobSeeker.getEmail() == email && jobSeeker.getPassword() == password)
+            {
+                dummy = jobSeeker;
+            }
+        }
+        return dummy;
     }
 }

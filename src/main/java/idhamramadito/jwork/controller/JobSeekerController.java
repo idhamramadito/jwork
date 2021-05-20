@@ -14,28 +14,37 @@ public class JobSeekerController {
 
     @RequestMapping("/{id}")
     public JobSeeker getJobSeekerById(@PathVariable int id) {
-        JobSeeker jobseeker = null;
+        JobSeeker jobSeeker = null;
         try {
-            jobseeker = DatabaseJobseeker.getJobSeekerById(id);
+            jobSeeker = DatabaseJobseeker.getJobSeekerById(id);
         } catch (JobSeekerNotFoundException e) {
             e.getMessage();
             return null;
         }
-        return jobseeker;
+        return jobSeeker;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public JobSeeker addJobSeeker(@RequestParam(value="name") String name,
-                                  @RequestParam(value="email") String email,
-                                  @RequestParam(value="password") String password)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public JobSeeker registerJobSeeker( @RequestParam(value="name") String name,
+                                        @RequestParam(value="email") String email,
+                                        @RequestParam(value="password") String password)
     {
-        JobSeeker jobseeker = new JobSeeker(DatabaseJobseeker.getLastId()+1, name, email, password);
+        JobSeeker jobSeeker = new JobSeeker(DatabaseJobseeker.getLastId()+1, name, email, password);
         try {
-            DatabaseJobseeker.addJobSeeker(jobseeker);
+            DatabaseJobseeker.addJobSeeker(jobSeeker);
         } catch (EmailAlreadyExistsException e) {
             e.getMessage();
             return null;
         }
-        return jobseeker;
+        return jobSeeker;
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public JobSeeker loginJobSeeker(@RequestParam(value="email") String email,
+                                    @RequestParam(value="password") String password)
+    {
+        JobSeeker jobSeeker = loginJobSeeker(email, password);
+        return jobSeeker;
+
     }
 }
