@@ -9,8 +9,8 @@ import java.util.ArrayList;
 @RestController
 public class JobController
 {
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public ArrayList<Job> getAllJob()
+    @RequestMapping("")
+    public static ArrayList<Job> getAllJob()
     {
 
         return DatabaseJob.getJobDatabase();
@@ -29,13 +29,13 @@ public class JobController
     }
 
     @RequestMapping(value = "/recruiter/{recruiterId}", method = RequestMethod.GET)
-    public ArrayList<Job> getJobByRecruiter(@PathVariable int recruiterId)
+    public static ArrayList<Job> getJobByRecruiter(@PathVariable int recruiterId)
     {
         return DatabaseJob.getJobByRecruiter(recruiterId);
     }
 
     @RequestMapping(value = "/category/{category}", method = RequestMethod.GET)
-    public ArrayList<Job> getJobByCategory(@PathVariable JobCategory category)
+    public static ArrayList<Job> getJobByCategory(@PathVariable JobCategory category)
     {
         return DatabaseJob.getJobByCategory(category);
     }
@@ -53,7 +53,7 @@ public class JobController
         {
             throw e;
         }
-        Job job = new Job(DatabaseJob.getLastId()+1, name, recruiter, fee, category);
+        Job job = new Job(DatabaseJob.getLastId(), name, recruiter, fee, category);
         boolean success = DatabaseJob.addJob(job);
 
         if (success)

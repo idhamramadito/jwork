@@ -11,7 +11,7 @@ public class DatabaseBonus
 {
     // instance variables - replace the example below with your own
     private static ArrayList<Bonus> BONUS_DATABASE = new ArrayList<Bonus>();
-    private static int lastId=0;
+    private static int lastId;
     
     /**
      * An example of a method - replace this comment with your own
@@ -36,17 +36,19 @@ public class DatabaseBonus
             if (bonus.getId() == id)
             {
                 dummy = bonus;
-            } else {
-                return dummy;
             }
         }
-        throw new BonusNotFoundException(id);
+        if (dummy == null) {
+            throw new BonusNotFoundException(id);
+
+        }
+        return dummy;
     }
 
     public static Bonus getBonusByReferralCode(String referralCode) {
         Bonus dummy = null;
         for (Bonus bonus : BONUS_DATABASE) {
-            if (bonus.getReferralCode().equals(referralCode)) {
+            if (bonus.getReferralCode() == referralCode) {
                 dummy = bonus;
             } else {
                 return dummy;

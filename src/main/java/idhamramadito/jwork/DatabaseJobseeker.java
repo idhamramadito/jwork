@@ -11,7 +11,7 @@ public class DatabaseJobseeker
 {
     // instance variables - replace the example below with your own
     private static ArrayList<JobSeeker> JOBSEEKER_DATABASE = new ArrayList<JobSeeker>();
-    private static int lastId=0;
+    private static int lastId;
 
     /**
      * An example of a method - replace this comment with your own
@@ -73,7 +73,7 @@ public class DatabaseJobseeker
         JobSeeker dummy = null;
         for (JobSeeker jobSeeker : JOBSEEKER_DATABASE)
         {
-            if (jobSeeker.getEmail() == email && jobSeeker.getPassword() == password)
+            if (jobSeeker.getEmail().equals(email) && jobSeeker.getPassword().equals(password))
             {
                 dummy = jobSeeker;
             }

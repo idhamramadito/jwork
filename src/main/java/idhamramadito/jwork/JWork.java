@@ -17,13 +17,13 @@ public class JWork {
         Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
         Location jakarta = new Location("DKI Jakarta", "Jakarta", "ibukota");
         Location bali = new Location("Bali", "Bali", "liburan");
-        Recruiter james = new Recruiter(DatabaseRecruiter.getLastId()+1, "James Bond", "bond.007@gmail.com", "081234567890", medan);
-        Recruiter idham = new Recruiter(DatabaseRecruiter.getLastId()+1, "Idham Ramadito", "idhamadito@gmail.com", "081314992380", jakarta);
-        Recruiter eben = new Recruiter(DatabaseRecruiter.getLastId()+1, "Hizkia Eben", "hizkiaeben@gmail.com", "081987654321", bali);
-        Job webdev = new Job(DatabaseJob.getLastId()+1, "Senior Designer", james, 500000, JobCategory.WebDeveloper);
-        Job UI = new Job(DatabaseJob.getLastId()+1, "UI", james, 600000, JobCategory.UI);
-        Job Devops = new Job(DatabaseJob.getLastId()+1, "DevOps", idham, 700000, JobCategory.Devops);
-        Job Devops2 = new Job(DatabaseJob.getLastId()+1, "DevOps2", eben, 800000, JobCategory.Devops);
+        Recruiter james = new Recruiter(1, "James Bond", "bond.007@gmail.com", "081234567890", medan);
+        Recruiter idham = new Recruiter(2, "Idham Ramadito", "idhamadito@gmail.com", "081314992380", jakarta);
+        Recruiter eben = new Recruiter(3, "Hizkia Eben", "hizkiaeben@gmail.com", "081987654321", bali);
+        Job webdev = new Job(1, "Senior Designer", james, 500000, JobCategory.WebDeveloper);
+        Job UI = new Job(1, "UI", james, 600000, JobCategory.UI);
+        Job Devops = new Job(2, "DevOps", idham, 700000, JobCategory.Devops);
+        Job Devops2 = new Job(3, "DevOps2", eben, 800000, JobCategory.Devops);
 
         DatabaseRecruiter.addRecruiter(james);
         DatabaseRecruiter.addRecruiter(idham);

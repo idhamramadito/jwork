@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class DatabaseInvoice {
     private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
-    private static int lastId=0;
+    private static int lastId;
 
     public static ArrayList<Invoice> getInvoiceDatabase(){
         return INVOICE_DATABASE;
@@ -22,12 +22,12 @@ public class DatabaseInvoice {
             {
                 dummy = invoice;
             }
+            else
+            {
+                return dummy;
+            }
         }
-        if (dummy == null)
-        {
-            throw new InvoiceNotFoundException(id);
-        }
-        return dummy;
+        throw new InvoiceNotFoundException(id);
     }
 
     public static ArrayList<Invoice> getInvoiceByJobSeeker(int jobSeekerId){
@@ -63,12 +63,12 @@ public class DatabaseInvoice {
     public static boolean removeInvoice(int id) throws InvoiceNotFoundException
     {
         for (int i=0; i < INVOICE_DATABASE.size(); i++) {
-            if(INVOICE_DATABASE.get(i).getId() == id) {
+            if(INVOICE_DATABASE.get(i).getId() == id)
+            {
                 INVOICE_DATABASE.remove(i);
                 return true;
             }
         }
         throw new InvoiceNotFoundException(id);
     }
-
 }

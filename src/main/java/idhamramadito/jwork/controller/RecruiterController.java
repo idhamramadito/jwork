@@ -3,28 +3,25 @@ package idhamramadito.jwork.controller;
 import idhamramadito.jwork.*;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 @RequestMapping("/recruiter")
 @RestController
 public class RecruiterController
 {
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public ArrayList<Recruiter> getAllRecruiter()
+    @RequestMapping("")
+    public static ArrayList<Recruiter> getAllRecruiter()
     {
-
         return DatabaseRecruiter.getRecruiterDatabase();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping("/{id}")
     public Recruiter getRecruiterById(@PathVariable int id) {
         Recruiter recruiter = null;
         try {
             recruiter = DatabaseRecruiter.getRecruiterById(id);
         } catch (RecruiterNotFoundException e) {
             e.getMessage();
-            return null;
         }
         return recruiter;
     }

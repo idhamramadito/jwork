@@ -11,7 +11,7 @@ public class DatabaseJob
 {
     // instance variables - replace the example below with your own
     private static ArrayList<Job> JOB_DATABASE = new ArrayList<Job>();
-    private static int lastId=0;
+    private static int lastId;
     
     /**
      * An example of a method - replace this comment with your own

@@ -11,12 +11,11 @@ public class DatabaseRecruiter
 {
     // instance variables - replace the example below with your own
     private static ArrayList<Recruiter> RECRUITER_DATABASE = new ArrayList<Recruiter>();
-    private static int lastId=0;
+    private static int lastId;
     
     /**
      * An example of a method - replace this comment with your own
      *
-     * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
     public static ArrayList<Recruiter> getRecruiterDatabase()
