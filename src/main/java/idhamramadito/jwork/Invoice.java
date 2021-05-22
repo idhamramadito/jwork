@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
  * @author Idham Ramadito
  * @version PT_Modul 3, 27 Maret 2021
  */
-abstract class Invoice
+public abstract class Invoice
 {
     private int id;
     private ArrayList<Job> jobs;

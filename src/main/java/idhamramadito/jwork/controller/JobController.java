@@ -53,7 +53,7 @@ public class JobController
         {
             throw e;
         }
-        Job job = new Job(DatabaseJob.getLastId(), name, recruiter, fee, category);
+        Job job = new Job(DatabaseJob.getLastId()+1, name, recruiter, fee, category);
         boolean success = DatabaseJob.addJob(job);
 
         if (success)
