@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JWork {
 
     public static void main(String[] args) {
+        /*
         Location medan = new Location("Sumatera Barat", "Medan", "kota kedua terbesar");
         Location jakarta = new Location("DKI Jakarta", "Jakarta", "ibukota");
         Location bali = new Location("Bali", "Bali", "liburan");
@@ -32,7 +33,7 @@ public class JWork {
         DatabaseJob.addJob(UI);
         DatabaseJob.addJob(Devops);
         DatabaseJob.addJob(Devops2);
-
+        */
         SpringApplication.run(JWork.class, args);
     }
 
