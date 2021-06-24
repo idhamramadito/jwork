@@ -20,11 +20,7 @@ public class DatabaseInvoice {
         {
             if (invoice.getId() == id)
             {
-                dummy = invoice;
-            }
-            else
-            {
-                return dummy;
+                return invoice;
             }
         }
         throw new InvoiceNotFoundException(id);

@@ -10,9 +10,9 @@ public class Job
     // instance variables
     private int id;
     private String name;
+    private Recruiter recruiter;
     private int fee;
     private JobCategory category;
-    private Recruiter recruiter;
 
     /**
      * Constructor dari class Job
