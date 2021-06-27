@@ -32,7 +32,7 @@ public class InvoiceController
         JobSeeker jobseeker;
 
         try {
-            jobseeker = DatabaseJobseeker.getJobSeekerById(jobseekerId);
+            jobseeker = DatabaseJobseekerPostgre.getJobSeekerFromId(jobseekerId);
         } catch (JobSeekerNotFoundException e) {
             e.getMessage();
             return null;
@@ -83,7 +83,7 @@ public class InvoiceController
 
         JobSeeker jobseeker = null;
         try {
-            jobseeker = DatabaseJobseeker.getJobSeekerById(jobseekerId);
+            jobseeker = DatabaseJobseekerPostgre.getJobSeekerFromId(jobseekerId);
         } catch (JobSeekerNotFoundException e) {
             return null;
         }
@@ -118,7 +118,7 @@ public class InvoiceController
 
         JobSeeker jobseeker = null;
         try {
-            jobseeker = DatabaseJobseeker.getJobSeekerById(jobseekerId);
+            jobseeker = DatabaseJobseekerPostgre.getJobSeekerFromId(jobseekerId);
         } catch (JobSeekerNotFoundException e) {
             e.getMessage();
             return null;

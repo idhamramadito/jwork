@@ -3,48 +3,55 @@ package idhamramadito.jwork.controller;
 import idhamramadito.jwork.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
+
 @RequestMapping("/jobseeker")
 @RestController
-public class JobSeekerController {
 
-    @RequestMapping("")
-    public String indexPage(@RequestParam(value="name", defaultValue="world") String name) {
-        return "Hello " + name;
-    }
-
-    @RequestMapping("/{id}")
-    public JobSeeker getJobSeekerById(@PathVariable int id) {
+public class JobSeekerController
+{
+    /**
+     * Mengambil data jobseeker dari id-nya
+     * @param id
+     * @return jobseeker
+     */
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public JobSeeker getJobseekerById(@PathVariable int id) {
         JobSeeker jobSeeker = null;
         try {
-            jobSeeker = DatabaseJobseeker.getJobSeekerById(id);
+            jobSeeker = DatabaseJobseekerPostgre.getJobSeekerFromId(id);
         } catch (JobSeekerNotFoundException e) {
             e.getMessage();
             return null;
         }
         return jobSeeker;
     }
-
+    /**
+     * Melakukan register jobseeker baru
+     * @return jobseeker
+     */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public JobSeeker registerJobSeeker( @RequestParam(value="name") String name,
-                                        @RequestParam(value="email") String email,
-                                        @RequestParam(value="password") String password)
-    {
-        JobSeeker jobSeeker = new JobSeeker(DatabaseJobseeker.getLastId()+1, name, email, password);
+    public JobSeeker registerJobseeker(@RequestParam(value="name") String name,
+                                       @RequestParam(value="email") String email,
+                                       @RequestParam(value="password") String password) throws SQLException {
+        JobSeeker jobseeker = new JobSeeker(DatabaseJobseekerPostgre.getLastJobSeekerId()+1, name, email, password);
         try {
-            DatabaseJobseeker.addJobSeeker(jobSeeker);
+            DatabaseJobseekerPostgre.insertJobSeeker(jobseeker);
         } catch (EmailAlreadyExistsException e) {
             e.getMessage();
             return null;
         }
-        return jobSeeker;
+        return jobseeker;
     }
 
+    /**
+     * Melakukan login jobseeker
+     * @return jobseeker
+     */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public JobSeeker loginJobSeeker(@RequestParam(value="email") String email,
-                                    @RequestParam(value="password") String password)
-    {
-        JobSeeker jobSeeker = DatabaseJobseeker.jobSeekerLogin(email, password);
-        return jobSeeker;
-
+    public JobSeeker loginJobseeker(@RequestParam(value="email") String email,
+                                    @RequestParam(value="password") String password) throws SQLException {
+        JobSeeker jobseeker = DatabaseJobseekerPostgre.jobseekerLogin(email, password);
+        return jobseeker;
     }
 }

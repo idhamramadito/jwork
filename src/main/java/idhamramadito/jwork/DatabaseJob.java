@@ -12,24 +12,33 @@ public class DatabaseJob
     // instance variables - replace the example below with your own
     private static ArrayList<Job> JOB_DATABASE = new ArrayList<Job>();
     private static int lastId;
-    
+
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @return    the sum of x and y
+     * Mengambil database dari job
+     * @return JOB_DATABASE
      */
     public static ArrayList<Job> getJobDatabase()
     {
         
         return JOB_DATABASE;
     }
-    
+
+    /**
+     * Mengambil id terakhir dari job
+     * @return lastId
+     */
     public static int getLastId()
     {
         
         return lastId;
     }
 
+    /**
+     * Mengambil data job berdasarkan id
+     * @param id id
+     * @return jobs
+     * @throws JobNotFoundException exception job
+     */
     public static Job getJobById(int id) throws JobNotFoundException
     {
         Job dummy = null;
@@ -45,6 +54,11 @@ public class DatabaseJob
         return dummy;
     }
 
+    /**
+     * Mendapatkan data recruiter dari id-nya
+     * @param recruiterId id dari recruiter
+     * @return list dari recruiter
+     */
     public static ArrayList<Job> getJobByRecruiter(int recruiterId)
     {
         ArrayList<Job> dummy = new ArrayList<Job>();
