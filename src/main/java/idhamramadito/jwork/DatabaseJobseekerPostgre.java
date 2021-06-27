@@ -5,6 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ *
+ * @author Idham Ramadito
+ * @version 27 Juni 2021
+ */
 public class DatabaseJobseekerPostgre extends DatabaseConnectionPostgre
 {
     private static ArrayList<JobSeeker> JOBSEEKER_DATABASE = new ArrayList<JobSeeker>();

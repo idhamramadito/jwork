@@ -4,6 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
+/**
+ *
+ * @author Idham Ramadito
+ * @version 27 Juni 2021
+ */
 public class DatabaseConnectionPostgre {
 
     public static Connection connection(){

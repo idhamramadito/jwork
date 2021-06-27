@@ -1,5 +1,10 @@
 package idhamramadito.jwork;
 
+/**
+ *
+ * @author Idham Ramadito
+ * @version 27 Juni 2021
+ */
 public class FeeCalculator implements Runnable
 {
     Invoice invoice;

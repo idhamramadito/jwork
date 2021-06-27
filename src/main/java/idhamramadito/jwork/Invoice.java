@@ -5,13 +5,13 @@ import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
 
 /**
- * Write a description of class Invoice here.
  *
  * @author Idham Ramadito
- * @version PT_Modul 3, 27 Maret 2021
+ * @version 27 Juni 2021
  */
 public abstract class Invoice
 {
+    // instance variables
     private int id;
     private ArrayList<Job> jobs;
     private Calendar date;
@@ -20,7 +20,10 @@ public abstract class Invoice
     private InvoiceStatus invoicestatus;
 
     /**
-     * Constructor for objects of class Invoice
+     * Constructor dari class Recruiter
+     * @param id merupakan id unik dari invoice
+     * @param jobs merupakan nama pekerjaan yang dipilih
+     * @param jobseeker merupakan nama pelamar
      */
     public Invoice(int id, ArrayList<Job> jobs, JobSeeker jobseeker)
     {
@@ -32,82 +35,129 @@ public abstract class Invoice
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  id  melakukan get id dari dari class invoice
-     * @return     id dari class invoice
+     * Mengambil id invoice
+     * @return   id dari invoice
      */
     public int getId()
     {
         
         return id;
     }
-    
+
+    /**
+     * Mengambil nama pekerjaan yang dipilih
+     * @return   jobs yang dipilih
+     */
     public ArrayList<Job> getJobs()
     {
         
         return jobs;
     }
-    
+
+    /**
+     * Mengambil tanggal dibuatnya invoice
+     * @return   date
+     */
     public Calendar getDate()
     {
         
         return date;
     }
-    
+
+    /**
+     * Mengambil biaya total
+     * @return   totalFee
+     */
     public int getTotalfee()
     {
         
         return totalFee;
     }
-    
+
+    /**
+     * Mengambil nama pelamar
+     * @return   jobseeker
+     */
     public JobSeeker getJobseeker()
     {
         
         return jobseeker;
     }
-    
+
+    /**
+     * Mengambil tipe pembayran yang dipilih
+     */
     public abstract PaymentType getPaymentType();
-    
-    
+
+    /**
+     * Mengambil status dari invoice
+     * @return   invoicestatus
+     */
     public InvoiceStatus getInvoiceStatus()
     {
         
         return invoicestatus;
     }
-    
+
+    /**
+     * Menetapkan id dari invoice
+     * @param id dari invoice
+     */
     public void setId(int id)
     {
         
         this.id = id;
     }
-    
+
+    /**
+     * Menetapkan pekerjaan yang dipilih
+     * @param jobs
+     */
     public void setJobs(ArrayList<Job> jobs)
     {
         
         this.jobs = jobs;
     }
-    
+
+    /**
+     * Menetapkan tanggal hari ini
+     * @param date
+     */
     public void setDate(Calendar date)
     {
         
         this.date = date;
     }
-    
+
+    /**
+     * Menetapkan tanggal menjadi DD/MM/YYYY
+     * @return tanggal
+     */
     public void setJoinDate(int year, int month, int dayOfMonth)
     {
         
         this.date = new GregorianCalendar(year, month, dayOfMonth);
     }
-    
+
+    /**
+     * Menetapkan biaya total
+     */
     public abstract void setTotalFee();
-    
+
+    /**
+     * Menetapkan pelamar
+     * @param jobseeker
+     */
     public void setJobseeker(JobSeeker jobseeker)
     {
         
         this.jobseeker = jobseeker;
     }
-    
+
+    /**
+     * Menetapkan status dari invoice
+     * @param invoicestatus
+     */
     public void setInvoiceStatus(InvoiceStatus invoicestatus)
     {
         

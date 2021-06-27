@@ -4,19 +4,20 @@ import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
 /**
- * Write a description of class BankPayment here.
  *
  * @author Idham Ramadito
- * @version PT Modul 4, 3 April 2021
+ * @version 27 Juni 2021
  */
 public class BankPayment extends Invoice
 {
-    // instance variables - replace the example below with your own
     private static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
     private int adminFee;
 
     /**
-     * Constructor for objects of class BankPayment
+     * Constructor dari class BankPayment
+     * @param id merupakan id unik dari recruiter
+     * @param jobs merupakan list dari job yang ada
+     * @param jobseeker merupakan info jobseeker
      */
     public BankPayment(int id, ArrayList<Job> jobs, JobSeeker jobseeker)
     {
@@ -30,27 +31,37 @@ public class BankPayment extends Invoice
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Mengambil tipe payment
+     * @return   PAYMENT_TYPE
      */
     public PaymentType getPaymentType()
     {
         return PAYMENT_TYPE;
     }
-    
+
+    /**
+     * Mengambil biaya admin
+     * @return   adminFee
+     */
     public int getAdminFee()
     {
         
         return adminFee;
     }
-    
+
+    /**
+     * Menetapkan biaya admin
+     * @param adminFee dari bankpayment
+     */
     public void setAdminFee(int adminFee)
     {
         this.adminFee = adminFee;
     }
-    
+
+    /**
+     * Menetapkan biaya total
+     * @return toalfee
+     */
     @Override
     public void setTotalFee()
     {

@@ -2,31 +2,38 @@ package idhamramadito.jwork;
 import java.util.ArrayList;
 
 /**
- * Write a description of class DatabaseJob here.
  *
  * @author Idham Ramadito
- * @version Modul 3, 25 Maret 2021
+ * @version 27 Juni 2021
  */
 public class DatabaseJobseeker
 {
-    // instance variables - replace the example below with your own
     private static ArrayList<JobSeeker> JOBSEEKER_DATABASE = new ArrayList<JobSeeker>();
     private static int lastId;
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @return    the sum of x and y
+     * Mengambil database jobSeeker
+     * @return JOBSEEKER_DATABASE
      */
     public static ArrayList<JobSeeker> getDatabaseJobSeeker()
     {
         return JOBSEEKER_DATABASE;
     }
 
+    /**
+     * Mengambil data jobSeeker dari id terakhir
+     * @return lastId
+     */
     public static int getLastId()
     {
         return lastId;
     }
+
+    /**
+     * Mengambil jobSeeker dari id-nya
+     * @param  id
+     * @return jobSeeker yang dipilih
+     */
     public static JobSeeker getJobSeekerById(int id) throws JobSeekerNotFoundException
     {
         JobSeeker dummy = null;
@@ -44,6 +51,10 @@ public class DatabaseJobseeker
         return dummy;
     }
 
+    /**
+     * Memasukkan data jobSeeker
+     * @param jobSeeker
+     */
     public static boolean addJobSeeker(JobSeeker jobSeeker) throws EmailAlreadyExistsException
     {
         for (JobSeeker orang : JOBSEEKER_DATABASE) {
@@ -56,6 +67,10 @@ public class DatabaseJobseeker
         return true;
     }
 
+    /**
+     * Menghapus data jobSeeker
+     * @param id
+     */
     public static boolean removeJobSeeker(int id) throws JobSeekerNotFoundException
     {
         for (JobSeeker jobSeeker : JOBSEEKER_DATABASE){
@@ -68,6 +83,10 @@ public class DatabaseJobseeker
         throw new JobSeekerNotFoundException(id);
     }
 
+    /**
+     * Melakukan login jobseeker
+     * @param email, password
+     */
     public static JobSeeker jobSeekerLogin(String email, String password)
     {
         JobSeeker dummy = null;

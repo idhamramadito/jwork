@@ -1,10 +1,16 @@
 package idhamramadito.jwork.controller;
 
+
 import idhamramadito.jwork.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 
+/**
+ *
+ * @author Idham Ramadito
+ * @version 27 Juni 2021
+ */
 @RequestMapping("/jobseeker")
 @RestController
 
@@ -26,6 +32,7 @@ public class JobSeekerController
         }
         return jobSeeker;
     }
+
     /**
      * Melakukan register jobseeker baru
      * @return jobseeker

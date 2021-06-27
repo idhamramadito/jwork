@@ -2,32 +2,39 @@ package idhamramadito.jwork;
 import java.util.ArrayList;
 
 /**
- * Write a description of class DatabaseBonus here.
  *
  * @author Idham Ramadito
- * @version Modul 3, 25 Maret 2021
+ * @version 27 Juni 2021
  */
 public class DatabaseBonus
 {
     // instance variables - replace the example below with your own
     private static ArrayList<Bonus> BONUS_DATABASE = new ArrayList<Bonus>();
     private static int lastId;
-    
+
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @return    the sum of x and y
+     * Mengambil database bonus
+     * @return BONUS_DATABASE
      */
     public static ArrayList<Bonus> getBonusDatabase()
     {
         return BONUS_DATABASE;
     }
 
+    /**
+     * Mengambil data bonus dari id terakhir
+     * @return lastId
+     */
     public static int getLastId()
     {
         return lastId;
     }
 
+    /**
+     * Mengambil bonus dari id-nya
+     * @param  id
+     * @return bonus yang dipilih
+     */
     public static Bonus getBonusById(int id) throws BonusNotFoundException
     {
         Bonus dummy = null;
@@ -45,6 +52,10 @@ public class DatabaseBonus
         return dummy;
     }
 
+    /**
+     * Mengambil data bonus berdasarkan referralcode
+     * @return bonus
+     */
     public static Bonus getBonusByReferralCode(String referralCode) {
         Bonus dummy = null;
         for (Bonus bonus : BONUS_DATABASE) {
@@ -57,6 +68,10 @@ public class DatabaseBonus
         return dummy;
     }
 
+    /**
+     * Memasukkan data bonus
+     * @param bonus
+     */
     public static boolean addBonus(Bonus bonus) throws ReferralCodeAlreadyExistsException
     {
         for (Bonus cekbonus : BONUS_DATABASE)
@@ -93,6 +108,10 @@ public class DatabaseBonus
         return false;
     }
 
+    /**
+     * Menghapus data bonus
+     * @param id
+     */
     public static boolean removeBonus(int id) throws BonusNotFoundException
     {
         for (Bonus bonus : BONUS_DATABASE){

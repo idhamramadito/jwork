@@ -5,8 +5,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Idham Ramadito
+ * @version 27 Juni 2021
+ */
 @RequestMapping("/recruiter")
 @RestController
+
+/**
+ * Mengambil data semua recuiter yang ada
+ * @param id
+ * @return recruiter
+ */
 public class RecruiterController
 {
     @RequestMapping("")
@@ -15,6 +26,11 @@ public class RecruiterController
         return DatabaseRecruiter.getRecruiterDatabase();
     }
 
+    /**
+     * Mengambil data recruiter dari id-nya
+     * @param id
+     * @return recruiter
+     */
     @RequestMapping("/{id}")
     public Recruiter getRecruiterById(@PathVariable int id) {
         Recruiter recruiter = null;
@@ -26,6 +42,10 @@ public class RecruiterController
         return recruiter;
     }
 
+    /**
+     * Melakukan register recruiter baru
+     * @return recruiter
+     */
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Recruiter addRecruiter(@RequestParam(value="name") String name,
                                   @RequestParam(value="email") String email,

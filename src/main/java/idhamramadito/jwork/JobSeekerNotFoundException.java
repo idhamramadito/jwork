@@ -1,11 +1,17 @@
 package idhamramadito.jwork;
 
+/**
+ *
+ * @author Idham Ramadito
+ * @version 27 Juni 2021
+ */
 public class JobSeekerNotFoundException extends Exception
 {
     private int jobSeeker_error;
 
     /**
-     * Constructor for objects of class Invoice
+     * Membuat exception bila jobseeker tidak ditemukan
+     * @param jobSeeker_input
      */
     public JobSeekerNotFoundException(int jobSeeker_input)
     {
@@ -14,11 +20,9 @@ public class JobSeekerNotFoundException extends Exception
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @return     id dari class invoice
+     * Memberi pesan error bila jobseeker tidak ditemukan
+     * @return error message
      */
-
     public String getMessage()
     {
         return super.getMessage() + jobSeeker_error + " not found";

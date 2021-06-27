@@ -3,7 +3,7 @@ package idhamramadito.jwork;
 /**
  *
  * @author Idham Ramadito
- * @version Modul 3, 25 Maret 2021
+ * @version 27 Juni 2021
  */
 public class Job
 {
@@ -32,79 +32,99 @@ public class Job
     }
 
     /**
-     * @param  id  melakukan get id dari job
-     * @return     unik id dari job
+     * Mengambil id job
+     * @return   id job
      */
     public int getId()
     {
         
         return id;
     }
-    
+
     /**
-     * @param  name  melakukan get name dari job
-     * @return       name dari job
+     * Mengambil name dari job
+     * @return   name dari job
      */
     public String getName()
     {
         
         return name;
     }
-    
+
     /**
-     * @param  fee  melakukan get fee dari job
-     * @return      fee dari job
+     * Mengambil biaya dari job
+     * @return   fee dari job
      */
     public int getFee()
     {
         
         return fee;
     }
-    
+
     /**
-     * @param  category  melakukan get category dari enum JobCategory
-     * @return           category yang dipilih dari list pada JobCategory
+     * Mengambil kategori dari job
+     * @return   category dari job
      */
     public JobCategory getCategory()
     {
         
         return category;
     }
-    
+
     /**
-     * @param  recruiter  melakukan get recruiter dari class Recruiter
-     * @return            recruiter dari class Recruiter
+     * Mengambil name dari recruiter
+     * @return   recruiter
      */
     public Recruiter getRecruiter()
     {
         
         return recruiter;
     }
-    
+
+    /**
+     * Menetapkan id dari job
+     * @param id dari job
+     */
     public void setId(int id)
     {
         
         this.id = id;
     }
-    
+
+    /**
+     * Menetapkan nama dari job
+     * @param name dari recruiter
+     */
     public void setName(String name)
     {
         
         this.name = name;
     }
-    
+
+    /**
+     * Menetapkan recruiter
+     * @param recruiter
+     */
     public void setRecruiter(Recruiter recruiter)
     {
         
         this.recruiter = recruiter;
     }
-    
+
+    /**
+     * Menetapkan biaya dari job
+     * @param fee dari recruiter
+     */
     public void setFee(int fee)
     {
         
         this.fee = fee;
     }
-    
+
+    /**
+     * Menetapkan kategori pekerjaan
+     * @param category dari job
+     */
     public void setCategory(JobCategory category)
     {
         

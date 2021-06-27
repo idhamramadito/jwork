@@ -1,12 +1,10 @@
 package idhamramadito.jwork;
 
 /**
- * Write a description of enum PaymentType here.
  *
  * @author Idham Ramadito
- * @version Modul 3, 25 Maret 2021
+ * @version 27 Juni 2021
  */
-
 public enum PaymentType 
 {
     BankPayment("Bank Payment"),

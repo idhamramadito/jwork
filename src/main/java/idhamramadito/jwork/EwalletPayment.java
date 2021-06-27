@@ -4,19 +4,20 @@ import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
 /**
- * Write a description of class EwalletPayment here.
  *
  * @author Idham Ramadito
- * @version Mdoul 4, 1 April 2021
+ * @version 27 Juni 2021
  */
 public class EwalletPayment extends Invoice
 {
-    // instance variables - replace the example below with your own
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private Bonus bonus;
 
     /**
-     * Constructor for objects of class EwalletPayment
+     * Constructor dari class BankPayment
+     * @param id merupakan id unik dari recruiter
+     * @param jobs merupakan list dari job yang ada
+     * @param jobseeker merupakan info jobseeker
      */
     public EwalletPayment(int id, ArrayList<Job> jobs, JobSeeker jobseeker)
     {
@@ -30,26 +31,37 @@ public class EwalletPayment extends Invoice
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @return    the sum of x and y
+     * Mengambil tipe payment
+     * @return   PAYMENT_TYPE
      */
     public PaymentType getPaymentType()
     {
         return PAYMENT_TYPE;
     }
-    
+
+    /**
+     * Mengambil bonus
+     * @return   bonus
+     */
     public Bonus getBonus()
     {
         
         return bonus;
     }
-    
+
+    /**
+     * Menetapkan bonus
+     * @param   bonus
+     */
     public void setBonus(Bonus bonus)
     {
         this.bonus = bonus;
     }
-    
+
+    /**
+     * Menetapkan biaya total
+     * @return toalfee
+     */
     @Override
     public void setTotalFee()
     {

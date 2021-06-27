@@ -7,14 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Write a description of class DatabaseBonus here.
  *
  * @author Idham Ramadito
- * @version Modul 3, 25 Maret 2021
+ * @version 27 Juni 2021
  */
 public class DatabaseBonusPostgre extends DatabaseConnectionPostgre
 {
-    // instance variables - replace the example below with your own
     private static ArrayList<Bonus> BONUS_DATABASE = new ArrayList<>();
     private static int lastId;
 
@@ -175,5 +173,28 @@ public class DatabaseBonusPostgre extends DatabaseConnectionPostgre
         }
 
         return bon1;
+    }
+
+    /**
+     * Menghapus data bonus
+     * @param id
+     */
+    public static boolean removeBonus(int id){
+        Connection c = connection();
+        PreparedStatement st;
+        boolean b;
+        try{
+            String query = "DELETE FROM bonus WHERE id=?;";
+            st = c.prepareStatement(query);
+            st.setInt(1, id);
+            st.execute();
+            st.close();
+            c.close();
+            b = true;
+        } catch (SQLException e){
+            b = false;
+            e.printStackTrace();
+        }
+        return b;
     }
 }

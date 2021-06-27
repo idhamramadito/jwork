@@ -5,16 +5,30 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Idham Ramadito
+ * @version 27 Juni 2021
+ */
 @RestController
 @RequestMapping("/invoice")
 public class InvoiceController
 {
+    /**
+     * Mengambil data semua invoice yang ada
+     * @return invoice
+     */
     @RequestMapping("")
     public ArrayList<Invoice> getAllInvoice()
     {
         return DatabaseInvoice.getInvoiceDatabase();
     }
 
+    /**
+     * Mengambil data invoice dari id-nya
+     * @param id
+     * @return invoice
+     */
     @RequestMapping("/{id}")
     public Invoice getInvoiceById(@PathVariable int id)
     {
@@ -26,6 +40,11 @@ public class InvoiceController
         }
     }
 
+    /**
+     * Mengambil data invoice dari id jobseeker-nya
+     * @param jobseekerId
+     * @return invoice
+     */
     @RequestMapping("/JobSeeker/{jobseekerId}")
     public ArrayList<Invoice> getInvoiceByJobseekerId(@PathVariable int jobseekerId)
     {
@@ -41,6 +60,11 @@ public class InvoiceController
         return DatabaseInvoice.getInvoiceByJobSeeker(jobseekerId);
     }
 
+    /**
+     * Mengubah status dari invoice
+     * @param id
+     * @return invoice status
+     */
     @RequestMapping(value = "/invoiceStatus/{id}", method = RequestMethod.PUT)
     public Invoice changeInvoiceStatus(@PathVariable int id, @RequestParam InvoiceStatus invoiceStatus)
     {
@@ -56,6 +80,10 @@ public class InvoiceController
         }
     }
 
+    /**
+     * Menghapus invoice yang dipilih
+     * @param id
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public boolean removeInvoice(@PathVariable int id)
     {
@@ -66,6 +94,11 @@ public class InvoiceController
         }
     }
 
+    /**
+     * Membuat invoice dengan type bank payment
+     * @param jobIdList
+     * @return invoice bankpayment
+     */
     @RequestMapping(value = "/createBankPayment", method = RequestMethod.POST)
     public Invoice addBankPayment(@RequestParam ArrayList<Integer> jobIdList,
                                   @RequestParam int jobseekerId,
@@ -101,6 +134,11 @@ public class InvoiceController
         }
     }
 
+    /**
+     * Membuat invoice dengan type Ewallet payment
+     * @param jobIdList
+     * @return invoice Ewalletpayment
+     */
     @RequestMapping(value = "/createEWalletPayment", method = RequestMethod.POST)
     public Invoice addEWalletPayment(@RequestParam ArrayList<Integer> jobIdList,
                                      @RequestParam int jobseekerId,

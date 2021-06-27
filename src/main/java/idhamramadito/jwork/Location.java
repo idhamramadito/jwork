@@ -1,10 +1,9 @@
 package idhamramadito.jwork;
 
 /**
- * Write a description of class Location here.
  *
  * @author Idham Ramadito
- * @version Modul 3, 25 Maret 2021
+ * @version 27 Juni 2021
  */
 public class Location
 {

@@ -3,7 +3,7 @@ package idhamramadito.jwork;
 /**
  *
  * @author Idham Ramadito
- * @version Modul 3, 25 Maret 2021
+ * @version 27 Juni 2021
  */
 public class Recruiter
 {
@@ -32,8 +32,8 @@ public class Recruiter
     }
 
     /**
-     * @param  id   melakukan get id dari recruiter
-     * @return      unik id dari recruiter
+     * Mengambil id recruiter
+     * @return   id dari recruiter
      */
     public int getId()
     {
@@ -42,8 +42,8 @@ public class Recruiter
     }
     
     /**
-     * @param  name   melakukan get name dari recruiter
-     * @return        name dari recruiter
+     * Mengambil name dari recruiter
+     * @return   name dari recruiter
      */
     public String getName()
     {
@@ -52,8 +52,8 @@ public class Recruiter
     }
     
     /**
-     * @param  email  melakukan get email dari recruiter
-     * @return        email dari recruiter
+     * Mengambil email dari recruiter
+     * @return   email dari recruiter
      */
     public String getEmail()
     {
@@ -62,8 +62,8 @@ public class Recruiter
     }
     
     /**
-     * @param  phoneNumber  melakukan get nomor telepon dari recruiter
-     * @return              nomor telepon dari recruiter
+     * Mengambil phonenumber dari recruiter
+     * @return   phonenumber dari recruiter
      */
     public String getPhoneNumber()
     {
@@ -72,39 +72,59 @@ public class Recruiter
     }
     
     /**
-     * @param  location   melakukan get location dari class Location
-     * @return            location dari class Location
+     * Mengambil location dari recruiter
+     * @return   location dari class Location
      */
     public Location getLocation()
     {
         
         return location;
     }
-    
+
+    /**
+     * Menetapkan id dari recruiter
+     * @param id dari recruiter
+     */
     public void setId(int id)
     {
         
         this.id = id;
     }
-    
+
+    /**
+     * Menetapkan email dari recruiter
+     * @param email dari recruiter
+     */
     public void setEmail(String email)
     {
         
         this.email = email;
     }
-    
+
+    /**
+     * Menetapkan name dari recruiter
+     * @param name dari recruiter
+     */
     public void setName(String name)
     {
         
         this.name = name;
     }
-    
+
+    /**
+     * Menetapkan phonenumber dari recruiter
+     * @param phoneNumber dari recruiter
+     */
     public void setPhoneNumber(String phoneNumber)
     {
         
         this.phoneNumber = phoneNumber;
     }
-    
+
+    /**
+     * Menetapkan location dari recruiter
+     * @param location dari recruiter
+     */
     public void setLocation(Location location)
     {
         
